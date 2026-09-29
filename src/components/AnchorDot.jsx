@@ -12,7 +12,11 @@ const SIZE = 56; // lado do canvas em px CSS (cabe o disco esticado + raios)
 const HALF = SIZE / 2;
 const R = 5.5; // mesmo raio do disco da Spark do menu
 const TAU = Math.PI * 2;
-const COLOR = "rgba(0, 0, 0, 0.75)";
+// Branco em `mix-blend-mode: difference` (no canvas): sobre o papel o
+// resultado é o grafite de sempre (≈ preto a .75), sobre o que é escuro — a
+// foto, o texto — vira claro. É a inversão cromática que mantém a bolinha
+// visível em qualquer fundo, sem ler cor de pixel nenhum.
+const COLOR = "rgba(255, 255, 255, 0.75)";
 
 // Molas (k = rigidez, c = amortecimento). O seguimento fica um pouco abaixo
 // do crítico (2√k ≈ 32) para chegar com uma leve sobra; a deformação bem
@@ -249,7 +253,7 @@ export default function AnchorDot({ anchor, hidden }) {
     <canvas
       ref={canvas}
       aria-hidden="true"
-      className="pointer-events-none fixed top-0 left-0 z-20 hidden will-change-transform pointer-fine:block"
+      className="pointer-events-none fixed top-0 left-0 z-20 hidden mix-blend-difference will-change-transform pointer-fine:block"
       style={{ width: SIZE, height: SIZE }}
     />
   );

@@ -42,7 +42,7 @@ de desenvolvimento (`/src/main.jsx`) e a tela fica branca. `base: "./"` no
 ## Arquitetura
 
 ```
-index.html              shell + SEO/OG + Google Fonts (Cactus Classical Serif, IBM Plex Mono 300/700)
+index.html              shell + SEO/OG + Google Fonts (Cactus Classical Serif, IBM Plex Mono 300/600)
 src/main.jsx            createRoot + StrictMode
 src/App.jsx             a tela: foto + h1 no centro, invocação do menu, bolinha (desktop), aviso (toque/teclado)
 src/components/AnchorDot.jsx  bolinha em canvas que segue o mouse e vira a âncora
@@ -149,6 +149,9 @@ na trilha.
   cheia) movido por `translate3d` — o compositor move a camada. O rAF hiberna
   quando as molas assentam; o próximo convite acorda por `setTimeout`. DPR
   limitado a 2. Não troque por canvas de tela cheia nem por loop contínuo.
+- **Bolinha em inversão cromática.** O canvas desenha branco a .75 com
+  `mix-blend-difference`: no papel dá o grafite de sempre, sobre a foto ou
+  texto escuro vira claro. Não troque por preto nem tire o blend.
 - **Disco da Spark no desktop é do canvas.** O `<circle>` da `Spark` tem
   `pointer-fine:hidden`; o SVG só contribui com os raios.
 - **Acessibilidade não é opcional aqui.** `nav` rotulada, `sr-only` com o texto
@@ -165,10 +168,10 @@ na trilha.
   tamanho fora da escala nem `text-[…px]`. Os papéis são utilitários em
   `index.css`: `type-h1` (a frase sob a foto, único h1 — 16, não 20, para não
   competir com o menu) e `type-h2` (raiz e títulos, 20) em serifa regular; `type-h3` (subtítulos/meta) mono light caixa
-  alta; `type-h4` (links de navegação abaixo dos títulos) mono bold;
+  alta; `type-h4` (links de navegação abaixo dos títulos) mono semibold;
   `type-p` mono light. Dentro de `<button>`/`<a>` o papel é só visual (heading
   não pode morar ali); na trilha do menu vira a tag de verdade (`h2`/`h4` +
-  `h3` no meta). Plex Mono carrega 300 e 700.
+  `h3` no meta). Plex Mono carrega 300 e 600 (o bold do protótipo pesava).
 - **Centro da tela**: foto 144×192 → 192×256 a partir de 640px (múltiplos de
   4, um degrau como o texto) + h1 em duas linhas + o aviso. Clicar nela
   invoca o menu como qualquer ponto. Se o texto do menu (conteúdo recortado
@@ -187,13 +190,9 @@ na trilha.
 
 ## Pendências conhecidas
 
-- A bolinha do desktop é preta e some sobre a foto escura (o cursor nativo
-  continua visível).
 - Os tópicos de Trabalho vêm do CV (`src/assets/CV`). A abertura de Fiocruz
   foi trocada pelas linhas do CV (a antiga, sobre ORCA/moléculas 3D, é do
   projeto Maria.view).
-- Projeto tem só o Maria.view (seção PROJETOS do CV), com `link: "#"` até a
-  URL existir — o ícone de link abre a própria página em nova aba.
 - `README.md` ainda é o boilerplate do template Vite.
 
 ## Mantendo este arquivo vivo

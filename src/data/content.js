@@ -150,7 +150,6 @@ const works = [
 
 // --- PROJETO ------------------------------------------------------------------
 // Mesma estrutura de Trabalho, com os textos da seção PROJETOS do CV.
-// TODO: trocar o `link` pela URL do Maria.view.
 const projects = [
   {
     id: "maria-view",

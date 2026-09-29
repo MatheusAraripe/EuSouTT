@@ -121,12 +121,13 @@ export default function App() {
         </h1>
 
         {/* No desktop quem convida ao clique é a bolinha; o aviso só aparece
-            no toque e, para o teclado, ao receber foco. */}
+            no toque e, para o teclado, ao receber foco. Centralizado sob a
+            foto, no papel de parágrafo: mono light, 12 no celular e 16 acima. */}
         <button
           ref={hint}
           type="button"
           onClick={openFromKeyboard}
-          className={`mt-4 cursor-pointer font-serif text-small text-black/70 transition-[opacity,visibility] duration-300 focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-accent pointer-fine:not-focus-visible:sr-only ${invocation ? "invisible opacity-0" : ""}`}
+          className={`mt-4 cursor-pointer self-center type-p text-black/70 transition-[opacity,visibility] duration-300 focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-accent pointer-fine:not-focus-visible:sr-only ${invocation ? "invisible opacity-0" : ""}`}
         >
           <span className="pointer-coarse:hidden">
             Clique em qualquer lugar

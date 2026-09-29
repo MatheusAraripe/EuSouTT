@@ -18,9 +18,9 @@
     "semantic_hash": "c7426e1aec92af1a3f2a43f694f4cdb9"
   },
   "src/App.jsx": {
-    "mtime": 1790713229.7055874,
-    "seen": 1790713287.1299767,
-    "ast_hash": "0a37d7b3e677006f45beee8294c8b991",
+    "mtime": 1790715430.2090423,
+    "seen": 1790715434.6840334,
+    "ast_hash": "eeb843fcb90940059fd1ac4215da856e",
     "semantic_hash": ""
   },
   "src/components/GlitchText.jsx": {
@@ -36,9 +36,9 @@
     "semantic_hash": ""
   },
   "src/data/content.js": {
-    "mtime": 1790711595.0187547,
-    "seen": 1790711655.0030959,
-    "ast_hash": "ebdc2d53b68a3bb2741f9004f926d6dd",
+    "mtime": 1790714431.229053,
+    "seen": 1790714484.7538602,
+    "ast_hash": "02daffba016c6fd17417f2ae8e3b6efa",
     "semantic_hash": ""
   },
   "src/main.jsx": {
@@ -60,9 +60,9 @@
     "semantic_hash": "a28dc4cb878325f3e9e5649f3e1469ac"
   },
   "index.html": {
-    "mtime": 1790713746.861719,
-    "seen": 1790713778.3756306,
-    "ast_hash": "7e591e20ab18a0d510c6afd1235b4903",
+    "mtime": 1790714417.88771,
+    "seen": 1790714484.7538683,
+    "ast_hash": "f4a978a3adc26259276d3ae688b0cce1",
     "semantic_hash": ""
   },
   "public/favicon.svg": {
@@ -78,9 +78,9 @@
     "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1790713777.2460015,
-    "seen": 1790713778.3756275,
-    "ast_hash": "f8fa30002885579181206914fe34f0e9",
+    "mtime": 1790714431.2856555,
+    "seen": 1790714484.7538657,
+    "ast_hash": "585ac29d07e30f0ad40ec3226d372290",
     "semantic_hash": ""
   },
   "src/components/Menu.jsx": {
@@ -90,9 +90,9 @@
     "semantic_hash": ""
   },
   "src/components/AnchorDot.jsx": {
-    "mtime": 1790644028.721006,
-    "seen": 1790644265.2494795,
-    "ast_hash": "9db70cfa15494131094ba6ee1027c89c",
+    "mtime": 1790714417.8752058,
+    "seen": 1790714484.7538543,
+    "ast_hash": "6702fde6dd38f5f179f6371f52cea806",
     "semantic_hash": ""
   },
   "src/assets/CV/Matheus_Araripe_CV.pdf": {

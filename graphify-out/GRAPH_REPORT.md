@@ -1,16 +1,16 @@
 # Graph Report - EuSouTT  (2026-09-29)
 
 ## Corpus Check
-- 14 files · ~20,619 words
+- 14 files · ~20,656 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 117 nodes · 141 edges · 11 communities
+- 116 nodes · 140 edges · 10 communities
 - Extraction: 89% EXTRACTED · 9% INFERRED · 2% AMBIGUOUS · INFERRED: 13 edges (avg confidence: 0.86)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `7493c11a`
+- Built from commit: `48482627`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -21,7 +21,6 @@
 - React + Vite Template Setup
 - Alia Brand Mark (favicon.svg)
 - GlitchText.jsx
-- content.js
 - EuSouTT — Portfólio de Matheus Araripe
 - AnchorDot.jsx
 
@@ -56,11 +55,11 @@
 - **Static discoverability and branding surface of the portfolio** — index_seo_metadata, index_theming_favicon, index_portfolio_matheus_araripe, index_html_document [INFERRED 0.85]
 - **Vite React app bootstrap flow (HTML shell to mounted SPA)** — index_html_document, index_main_module_script, index_root_mount_node, readme_react_vite_template [INFERRED 0.85]
 
-## Communities (11 total, 0 thin omitted)
+## Communities (10 total, 0 thin omitted)
 
 ### Community 0 - "Menu.jsx"
-Cohesion: 0.19
-Nodes (11): ArrowBack(), ArrowOut(), Spark(), boxStyle(), clamp(), Item(), Menu(), opens() (+3 more)
+Cohesion: 0.14
+Nodes (15): ArrowBack(), ArrowOut(), Spark(), boxStyle(), clamp(), Item(), Menu(), opens() (+7 more)
 
 ### Community 1 - "devDependencies"
 Cohesion: 0.09
@@ -82,10 +81,6 @@ Nodes (9): Alia Brand Mark (favicon.svg), Blurred Ellipse Mesh (feGaussianBlur L
 Cohesion: 0.36
 Nodes (8): charMap, colors, getRandomElement(), getRandomNumber(), GlitchText(), idleChar(), prefersReducedMotion(), shuffle()
 
-### Community 6 - "content.js"
-Cohesion: 0.33
-Nodes (5): menu, projects, TODO: trocar o `link` pela URL do Maria.view., socials, works
-
 ### Community 11 - "EuSouTT — Portfólio de Matheus Araripe"
 Cohesion: 0.17
 Nodes (11): Arquitetura, Comandos, Convenções do projeto, Deploy, EuSouTT — Portfólio de Matheus Araripe, Git, graphify, Mantendo este arquivo vivo (+3 more)
@@ -104,7 +99,7 @@ Nodes (8): App(), AnchorDot(), clamp01(), easeOut(), FOLLOW, GROW, JELLY, RAYS
 
 ## Knowledge Gaps
 - **41 isolated node(s):** `name`, `private`, `version`, `type`, `dev` (+36 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 48 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 47 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
@@ -116,10 +111,10 @@ _Questions this graph is uniquely positioned to answer:_
 - **What is the exact relationship between `Static Site Identity Asset (public/ favicon)` and `Display-P3 Wide-Gamut Color Fallback`?**
   _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
 - **Why does `devDependencies` connect `devDependencies` to `package.json`?**
-  _High betweenness centrality (0.082) - this node is a cross-community bridge._
+  _High betweenness centrality (0.084) - this node is a cross-community bridge._
 - **What connects `name`, `private`, `version` to the rest of the system?**
   _41 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `Menu.jsx` be split into smaller, more focused modules?**
+  _Cohesion score 0.1380952380952381 - nodes in this community are weakly interconnected._
 - **Should `devDependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.08695652173913043 - nodes in this community are weakly interconnected._
-- **Should `package.json` be split into smaller, more focused modules?**
-  _Cohesion score 0.13333333333333333 - nodes in this community are weakly interconnected._

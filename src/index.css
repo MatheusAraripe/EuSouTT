@@ -39,7 +39,7 @@
    h1  a frase sob a foto (único na página)   serifa, regular, 16
    h2  títulos do menu e toda a raiz           serifa, regular, 20
    h3  subtítulos (empresa, ano…)              mono, light, 12, caixa alta
-   h4  links de navegação abaixo dos títulos   mono, bold, 16
+   h4  links de navegação abaixo dos títulos   mono, semibold, 16
    p   parágrafos                              mono, light, 16 */
 /* 16 e não 20: a legenda da foto não compete com os links do menu. */
 @utility type-h1 {
@@ -64,11 +64,12 @@
   text-transform: uppercase;
 }
 
+/* Semibold, não o bold do protótipo: em 16px o 700 pesava demais. */
 @utility type-h4 {
   font-family: var(--font-mono);
   font-size: var(--text-body);
   line-height: var(--text-body--line-height);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 @utility type-p {
