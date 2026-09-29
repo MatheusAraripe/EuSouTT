@@ -36,15 +36,16 @@
    Cinco papéis de texto (Figma, "hierarquia de textos"). A tag semântica e o
    papel visual andam juntos, mas o papel também vale para o que não pode ser
    heading — o título dentro de um <button> do menu, por exemplo.
-   h1  a frase sob a foto (único na página)   serifa, regular, 20
+   h1  a frase sob a foto (único na página)   serifa, regular, 16
    h2  títulos do menu e toda a raiz           serifa, regular, 20
    h3  subtítulos (empresa, ano…)              mono, light, 12, caixa alta
    h4  links de navegação abaixo dos títulos   mono, bold, 16
    p   parágrafos                              mono, light, 16 */
+/* 16 e não 20: a legenda da foto não compete com os links do menu. */
 @utility type-h1 {
   font-family: var(--font-serif);
-  font-size: var(--text-title);
-  line-height: var(--text-title--line-height);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
   font-weight: 400;
 }
 
@@ -131,6 +132,26 @@ body {
     scrollbar-width: thin;
     scrollbar-color: currentColor transparent;
   }
+}
+
+/* A borda do menu que ainda tem texto esmaece em 32px: é o aviso de que dá
+   para rolar, visível também no toque (onde o fio da barra não aparece).
+   `data-more` é escrito pelo Menu conforme a posição da rolagem. */
+.menu-scroll[data-more="bottom"] {
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 32px), transparent);
+}
+
+.menu-scroll[data-more="top"] {
+  mask-image: linear-gradient(to top, #000 calc(100% - 32px), transparent);
+}
+
+.menu-scroll[data-more="top bottom"] {
+  mask-image: linear-gradient(
+    transparent,
+    #000 32px,
+    #000 calc(100% - 32px),
+    transparent
+  );
 }
 
 /* Marca da âncora surgindo no ponto do clique. Anima `transform`, que compõe

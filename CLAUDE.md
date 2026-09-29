@@ -7,7 +7,7 @@ pelo clique**: o usuário clica em qualquer ponto e o menu surge ali.
 
 Repositório: https://github.com/MatheusAraripe/EuSouTT (branch `main`). O
 produto é o site pessoal de Matheus Araripe — designer que programa. "alia",
-nome antigo da pasta, sobrevive só na marca do favicon.
+nome antigo da pasta, sobrevive só no `name` do `package.json`.
 
 ## Comandos
 
@@ -44,14 +44,15 @@ de desenvolvimento (`/src/main.jsx`) e a tela fica branca. `base: "./"` no
 ```
 index.html              shell + SEO/OG + Google Fonts (Cactus Classical Serif, IBM Plex Mono 300/700)
 src/main.jsx            createRoot + StrictMode
-src/App.jsx             a tela: invocação do menu, bolinha (desktop), aviso (toque/teclado)
+src/App.jsx             a tela: foto + h1 no centro, invocação do menu, bolinha (desktop), aviso (toque/teclado)
 src/components/AnchorDot.jsx  bolinha em canvas que segue o mouse e vira a âncora
 src/components/Menu.jsx o menu: geometria, navegação por níveis, FLIP, foco
 src/components/GlitchText.jsx  glitch por caractere no hover/touch
 src/components/icons.jsx       Spark (marca do clique) e ArrowBack
 src/index.css           tokens (@theme) + escala tipográfica, barra de rolagem do menu, reduced-motion
 src/data/content.js     FONTE ÚNICA DE CONTEÚDO — a árvore `menu`
-src/assets/             CV (PDF) e foto `tt.jpg` — ainda não usados pela tela
+public/                 favicon.svg (a bolinha, cor pelo tema do navegador) + apple-touch-icon.png
+src/assets/             CV (PDF, só fonte de texto) e foto: `tt.jpg` original, `tt.webp` (480×640) a usada
 Figma/                  protótipo (.fig) + prints das regras do menu (local, fora do git)
 ```
 
@@ -81,6 +82,12 @@ Não há roteador, estado global, backend nem fetch. Tudo é estático e client-
   transparente e o wrapper interno devolve `text-black`. Não adicione
   `scrollbar-width`/`scrollbar-color` fora do `@supports`: desligam as regras
   webkit e devolvem as setas.
+- **Aviso de rolagem**: a borda do menu que ainda tem texto esmaece em 32px
+  (`data-more` = `top`/`bottom`, escrito no DOM por um efeito do `Menu`;
+  máscara em `index.css`). É o que avisa, no toque, que a tela continua — lá
+  o fio da barra nunca aparece. `MAX_H` (576) cabe Sobre inteiro quando há
+  espaço; com o clique no meio da tela quem limita é a distância até a borda
+  (no celular, ~170px de largura), e aí o aviso é o que resta.
 - **A barra é borda do menu** (`tight` em `Menu.jsx`): no lado R, quando a
   tela rola, a caixa passa a terminar na borda do texto — a barra ocupa essa
   linha e o texto recua. A checagem roda no layout effect e também num
@@ -101,8 +108,12 @@ Não há roteador, estado global, backend nem fetch. Tudo é estático e client-
 - **Título que viaja**: todo bloco tem `data-flip` com um id estável. Antes de
   navegar, `go()` fotografa os rects; depois, blocos que persistem deslizam
   (FLIP) e os novos surgem em cascata a partir da âncora.
-- **Trilha**: as seções da raiz (Sobre/Trabalho/…) não viram cabeçalho; os nós
-  abaixo delas empilham no topo com o mesmo estilo que tinham na lista.
+- **Trilha**: as seções da raiz que são só categorias (Trabalho/Projeto/
+  Contato) não viram cabeçalho; os nós abaixo delas empilham no topo com o
+  mesmo estilo que tinham na lista. Seção da raiz com `meta` (Sobre, "TT") se
+  apresenta como título: entra na trilha e seus filhos descem um nível
+  (`depth` em `View`) — viram tópicos h4, como os de um trabalho. Na lista da
+  raiz o `meta` não aparece.
 
 ### `src/data/content.js` é o ponto de entrada para conteúdo
 
@@ -152,12 +163,22 @@ na trilha.
   `--text-body` (16/20) e `--text-small` (12/16) no `@theme`; abaixo de 640px
   todos descem um degrau (16, 12, 8) trocando as variáveis — nunca crie um
   tamanho fora da escala nem `text-[…px]`. Os papéis são utilitários em
-  `index.css`: `type-h1` (a frase sob a foto, único h1) e `type-h2` (raiz e
-  títulos) em serifa regular; `type-h3` (subtítulos/meta) mono light caixa
+  `index.css`: `type-h1` (a frase sob a foto, único h1 — 16, não 20, para não
+  competir com o menu) e `type-h2` (raiz e títulos, 20) em serifa regular; `type-h3` (subtítulos/meta) mono light caixa
   alta; `type-h4` (links de navegação abaixo dos títulos) mono bold;
   `type-p` mono light. Dentro de `<button>`/`<a>` o papel é só visual (heading
   não pode morar ali); na trilha do menu vira a tag de verdade (`h2`/`h4` +
   `h3` no meta). Plex Mono carrega 300 e 700.
+- **Centro da tela**: foto 144×192 → 192×256 a partir de 640px (múltiplos de
+  4, um degrau como o texto) + h1 em duas linhas + o aviso. Clicar nela
+  invoca o menu como qualquer ponto. Se o texto do menu (conteúdo recortado
+  pela caixa, `box` no `onAnchor`) cobre o centro, ele vai a `opacity-10`
+  (`data-covered`, escrito no DOM pelo App) — menu preto sobre foto escura é
+  ilegível. Longe dela, tudo segue visível.
+- **Alinhamento**: títulos, subtítulos e links seguem o lado da âncora (L/R);
+  parágrafos nunca — são blocos justificados na largura toda do menu
+  (`self-stretch text-justify`), com a última linha no início, como no
+  protótipo.
 - **Zero dependências de UI.** SVG inline; sem lib de animação, ícones ou
   componentes. Só React, React DOM e Tailwind. Fontes via Google Fonts.
 - **Comentários em pt-BR** explicando o *porquê*, no topo do bloco. Siga o tom.
@@ -166,18 +187,14 @@ na trilha.
 
 ## Pendências conhecidas
 
-- **Foto e título centrais** (Desktop-2 do Figma: foto + "Matheus Araripe, um
-  designer que programa") ainda não entraram — hoje o centro está vazio no
-  desktop e só tem o aviso no toque.
-- Três tópicos de Maria Eulália ("Arquitetura de Tema e Autonomia", "UI/UX &
-  Front-end", "Lógica de Negócios…") não têm texto no Figma; aparecem como
-  texto não clicável até ganharem `body`.
-- Textos de Nova Tendência (Brasilseg) e Fiocruz (ORCA) foram casados com os
-  itens a partir do CV do Figma (`A4 - 3`) — confirmar. `meta` de LAB_TT
-  ("Experimental") também é chute.
-- `socials` (Contato) ainda aponta para `"#"`.
+- A bolinha do desktop é preta e some sobre a foto escura (o cursor nativo
+  continua visível).
+- Os tópicos de Trabalho vêm do CV (`src/assets/CV`). A abertura de Fiocruz
+  foi trocada pelas linhas do CV (a antiga, sobre ORCA/moléculas 3D, é do
+  projeto Maria.view).
+- Projeto tem só o Maria.view (seção PROJETOS do CV), com `link: "#"` até a
+  URL existir — o ícone de link abre a própria página em nova aba.
 - `README.md` ainda é o boilerplate do template Vite.
-- `public/favicon.svg` carrega peso morto do export do Figma.
 
 ## Mantendo este arquivo vivo
 

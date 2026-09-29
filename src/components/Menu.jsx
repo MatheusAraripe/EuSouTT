@@ -19,7 +19,9 @@ const GLITCH_X = 14;
 const GLITCH_Y = 18;
 const ARROW = 20; // largura da seta de voltar (icons.jsx)
 const MAX_W = 304; // ~300px do protótipo: a mono de 16px pede mais linha que a de 13
-const MAX_H = 360;
+// Cabe Sobre inteiro (intro + arquétipos) quando há espaço; em telas baixas
+// ou com o clique no meio, quem limita é a distância até a borda.
+const MAX_H = 576;
 const EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
 
 const clamp = (v, min, max) => Math.min(Math.max(v, min), max);
@@ -156,6 +158,9 @@ function Label({ node, level, heading = false }) {
 // é só a do título: o subtítulo vem depois, fora do botão.
 function Item({ node, level, onOpen }) {
   const cls = `max-w-full cursor-pointer [text-align:inherit] ${FOCUS}`;
+  // A raiz é só a lista de seções: o subtítulo de uma seção (o "TT" de Sobre)
+  // aparece quando ela vira cabeçalho, não no primeiro menu.
+  const meta = level > 1 && <Meta node={node} />;
 
   if (node.href) {
     const external = node.href.startsWith("http");
@@ -168,7 +173,7 @@ function Item({ node, level, onOpen }) {
         >
           <Title node={node} level={level} glitch />
         </a>
-        <Meta node={node} />
+        {meta}
       </>
     );
   }
@@ -179,7 +184,7 @@ function Item({ node, level, onOpen }) {
         <button type="button" className={cls} onClick={(e) => onOpen(node, e)}>
           <Title node={node} level={level} glitch />
         </button>
-        <Meta node={node} />
+        {meta}
       </>
     );
   }
@@ -192,8 +197,15 @@ function Item({ node, level, onOpen }) {
 // delas forma a trilha no topo.
 function View({ path, right, onOpen }) {
   const node = path.at(-1);
-  const level = path.length;
-  const trail = path.slice(1);
+  // Uma seção da raiz com `meta` (Sobre) se apresenta como título: entra na
+  // trilha e o que está abaixo dela desce um nível — seus tópicos são links de
+  // navegação (h4), como os de um trabalho. As demais (Trabalho, Projeto…)
+  // são só categorias e somem do topo.
+  const titled = Boolean(path[0]?.meta);
+  const depth = (i) => (i === 0 ? 1 : i + 1 + (titled ? 1 : 0));
+  const trail = path
+    .map((n, i) => ({ n, level: depth(i) }))
+    .filter((_, i) => i > 0 || titled);
   const items = node ? (node.children ?? []) : menu;
   const body = node?.body ?? [];
   // Título e subtítulo empilhados e encostados no lado da âncora — na trilha
@@ -202,21 +214,23 @@ function View({ path, right, onOpen }) {
 
   return (
     <>
-      {trail.map((n, i) => (
+      {trail.map(({ n, level }, i) => (
         <div
           key={n.id}
           data-flip={n.id}
           className={`${stack} ${i > 0 ? "mt-7" : ""}`}
         >
-          <Label node={n} level={i + 2} heading />
+          <Label node={n} level={level} heading />
         </div>
       ))}
 
+      {/* Parágrafos são blocos justificados na largura toda, dos dois lados
+          da tela — só títulos, subtítulos e links seguem o lado da âncora. */}
       {body.map((text, i) => (
         <p
           key={i}
           data-flip={`${node.id}/body/${i}`}
-          className={`${trail.length || i ? "mt-4" : ""} type-p text-black/65`}
+          className={`${trail.length || i ? "mt-4" : ""} type-p self-stretch text-justify text-black/65`}
         >
           {text}
         </p>
@@ -224,7 +238,7 @@ function View({ path, right, onOpen }) {
 
       {items.length > 0 && (
         <ul
-          className={`flex flex-col ${level === 0 ? "gap-3" : "gap-4"} ${right ? "items-end" : "items-start"} ${trail.length || body.length ? "mt-4" : ""}`}
+          className={`flex flex-col ${path.length ? "gap-4" : "gap-3"} ${right ? "items-end" : "items-start"} ${trail.length || body.length ? "mt-4" : ""}`}
         >
           {items.map((n) => (
             <li
@@ -232,7 +246,7 @@ function View({ path, right, onOpen }) {
               data-flip={n.id}
               className={stack}
             >
-              <Item node={n} level={level + 1} onOpen={onOpen} />
+              <Item node={n} level={depth(path.length)} onOpen={onOpen} />
             </li>
           ))}
         </ul>
@@ -282,9 +296,23 @@ export default function Menu({
   const open = (node, e) => go([...path, node], e.detail === 0);
   const back = (e) => go(path.slice(0, -1), e.detail === 0, path.at(-1).id);
 
+  // `box` é onde há texto nesta tela (o conteúdo recortado pela caixa, que
+  // é invisível e maior). O App usa para saber se o menu cobre a foto.
   useLayoutEffect(() => {
-    onAnchor?.({ x, y, depth: path.length });
-  }, [onAnchor, x, y, path.length]);
+    const frame = scroller.current.getBoundingClientRect();
+    const text = content.current.getBoundingClientRect();
+    onAnchor?.({
+      x,
+      y,
+      depth: path.length,
+      box: {
+        left: Math.max(frame.left, text.left),
+        top: Math.max(frame.top, text.top),
+        right: Math.min(frame.right, text.right),
+        bottom: Math.min(frame.bottom, text.bottom),
+      },
+    });
+  }, [onAnchor, x, y, path]);
 
   useLayoutEffect(() => {
     const el = scroller.current;
@@ -362,6 +390,27 @@ export default function Menu({
     observer.observe(content.current);
     return () => observer.disconnect();
   }, [path, right, tight]);
+
+  // Borda com mais texto esmaece (data-more → máscara em index.css). No toque
+  // não há hover, então o fio da barra nunca aparece: sem isso nada diria que
+  // a tela continua. Escrito direto no DOM, fora do React, como as animações.
+  useEffect(() => {
+    const el = scroller.current;
+    const update = () => {
+      const rest = el.scrollHeight - el.clientHeight - el.scrollTop;
+      el.dataset.more = [el.scrollTop > 1 && "top", rest > 1 && "bottom"]
+        .filter(Boolean)
+        .join(" ");
+    };
+    update();
+    el.addEventListener("scroll", update, { passive: true });
+    const observer = new ResizeObserver(update);
+    observer.observe(content.current);
+    return () => {
+      el.removeEventListener("scroll", update);
+      observer.disconnect();
+    };
+  }, [path, tight]);
 
   return (
     <>

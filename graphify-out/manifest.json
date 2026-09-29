@@ -18,27 +18,27 @@
     "semantic_hash": "c7426e1aec92af1a3f2a43f694f4cdb9"
   },
   "src/App.jsx": {
-    "mtime": 1790707011.7678072,
-    "seen": 1790707018.9026754,
-    "ast_hash": "2f113f903c60fed3ae2a10ef95f76ea1",
+    "mtime": 1790713229.7055874,
+    "seen": 1790713287.1299767,
+    "ast_hash": "0a37d7b3e677006f45beee8294c8b991",
     "semantic_hash": ""
   },
   "src/components/GlitchText.jsx": {
-    "mtime": 1790706050.645499,
-    "seen": 1790706168.364536,
-    "ast_hash": "290ba22c3b74771e1d83a2f981c78454",
+    "mtime": 1790708152.5991497,
+    "seen": 1790709879.3696635,
+    "ast_hash": "77c843aa65b04cd017d043bf4408a1ea",
     "semantic_hash": ""
   },
   "src/components/icons.jsx": {
-    "mtime": 1790706050.6790528,
-    "seen": 1790706168.3645387,
-    "ast_hash": "7c0481379ee04dc5cfeed5690434b13e",
+    "mtime": 1790708152.6451743,
+    "seen": 1790709879.369666,
+    "ast_hash": "9e64a876c4ba0c9c64c37b2931eadcb1",
     "semantic_hash": ""
   },
   "src/data/content.js": {
-    "mtime": 1790686736.7582402,
-    "seen": 1790703311.161867,
-    "ast_hash": "8e71eca4c4116b2355bf900bf3d4c4c7",
+    "mtime": 1790711595.0187547,
+    "seen": 1790711655.0030959,
+    "ast_hash": "ebdc2d53b68a3bb2741f9004f926d6dd",
     "semantic_hash": ""
   },
   "src/main.jsx": {
@@ -48,10 +48,10 @@
     "semantic_hash": "e13723e2574429d9a6d849727e3ff695"
   },
   "vite.config.js": {
-    "mtime": 1787257557.7260551,
-    "seen": 1789052563.357109,
-    "ast_hash": "39166301d935bbe59e10604bbceab7a4",
-    "semantic_hash": "39166301d935bbe59e10604bbceab7a4"
+    "mtime": 1790708152.6697192,
+    "seen": 1790709879.3696697,
+    "ast_hash": "a9422099774b55126cb90470761c0fff",
+    "semantic_hash": ""
   },
   "README.md": {
     "mtime": 1786120077.7955267,
@@ -60,16 +60,16 @@
     "semantic_hash": "a28dc4cb878325f3e9e5649f3e1469ac"
   },
   "index.html": {
-    "mtime": 1790703214.4426775,
-    "seen": 1790703311.1618733,
-    "ast_hash": "8e48bcdff796323c71fe1c75ff27243b",
+    "mtime": 1790713746.861719,
+    "seen": 1790713778.3756306,
+    "ast_hash": "7e591e20ab18a0d510c6afd1235b4903",
     "semantic_hash": ""
   },
   "public/favicon.svg": {
-    "mtime": 1786120048.0438159,
-    "seen": 1789052563.3571112,
-    "ast_hash": "7e840862161341271697daa99a40d76b",
-    "semantic_hash": "7e840862161341271697daa99a40d76b"
+    "mtime": 1790713746.5356555,
+    "seen": 1790713778.3756347,
+    "ast_hash": "574e8431e560142ffbfc38e036fd95c1",
+    "semantic_hash": ""
   },
   ".claude/settings.json": {
     "mtime": 1789052633.3579507,
@@ -78,15 +78,15 @@
     "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1790706167.3285687,
-    "seen": 1790706168.3645434,
-    "ast_hash": "a9f3f9585db98c8b015ffc2e740f3056",
+    "mtime": 1790713777.2460015,
+    "seen": 1790713778.3756275,
+    "ast_hash": "f8fa30002885579181206914fe34f0e9",
     "semantic_hash": ""
   },
   "src/components/Menu.jsx": {
-    "mtime": 1790706772.0677068,
-    "seen": 1790706854.6568575,
-    "ast_hash": "78c332390bfda6b05b9c4abb62da47ed",
+    "mtime": 1790713246.123714,
+    "seen": 1790713287.1299818,
+    "ast_hash": "15156f80b229b33723d4ba457589d8a3",
     "semantic_hash": ""
   },
   "src/components/AnchorDot.jsx": {
@@ -105,6 +105,24 @@
     "mtime": 1786648949.5843387,
     "seen": 1790647313.958525,
     "ast_hash": "9fa54d66d9f4ab28484bc5b6fcf87a1d",
+    "semantic_hash": ""
+  },
+  ".github/workflows/deploy.yml": {
+    "mtime": 1790708152.544055,
+    "seen": 1790709879.3696709,
+    "ast_hash": "cf44400d20aaa782a4207431d6adb6c8",
+    "semantic_hash": ""
+  },
+  "src/assets/image/tt.webp": {
+    "mtime": 1790713110.7472136,
+    "seen": 1790713287.1299975,
+    "ast_hash": "4d6f676fa8684ecb599d24de581b9394",
+    "semantic_hash": ""
+  },
+  "public/apple-touch-icon.png": {
+    "mtime": 1790713746.7950485,
+    "seen": 1790713778.3756335,
+    "ast_hash": "9b4c78a617c48e0df1a53bec50c1e090",
     "semantic_hash": ""
   }
 }

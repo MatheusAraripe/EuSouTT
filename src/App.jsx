@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import AnchorDot from "./components/AnchorDot";
 import Menu from "./components/Menu";
+import photo from "./assets/image/tt.webp";
 
 let invocations = 0;
 
@@ -12,6 +13,7 @@ export default function App() {
   // Onde a âncora do menu aberto está e em que nível ele se encontra.
   const [anchor, setAnchor] = useState(null);
   const hint = useRef(null);
+  const center = useRef(null);
   const restoreFocus = useRef(false);
 
   useEffect(() => {
@@ -67,6 +69,22 @@ export default function App() {
     });
   };
 
+  // Menu aberto em cima da foto fica ilegível (texto preto sobre foto
+  // escura). A caixa dele é fixa por invocação, então basta um teste: se
+  // cobre o centro, foto e título recuam. Aberto longe, como no protótipo,
+  // tudo continua visível. Escrito no DOM, fora do React.
+  useLayoutEffect(() => {
+    const box = invocation ? anchor?.box : null;
+    const r = center.current.getBoundingClientRect();
+    const covered =
+      box &&
+      box.left < r.right &&
+      box.right > r.left &&
+      box.top < r.bottom &&
+      box.bottom > r.top;
+    center.current.dataset.covered = covered ? "true" : "false";
+  }, [invocation, anchor]);
+
   // Com o menu fechado a tela inteira é o botão que o invoca: o cursor de
   // clique reforça o convite da bolinha. Aberto, clicar fora só dispensa —
   // volta o cursor padrão, e o pointer fica com os itens do menu.
@@ -74,24 +92,50 @@ export default function App() {
     <main
       className={`grid h-dvh place-items-center overflow-hidden ${invocation ? "" : "cursor-pointer"}`}
     >
-      <h1 className="type-h1 sr-only">Matheus Araripe, um designer que programa</h1>
-
       <AnchorDot
         anchor={invocation ? anchor : null}
         hidden={Boolean(anchor?.depth)}
       />
 
-      {/* No desktop quem convida ao clique é a bolinha; o aviso só aparece
-          no toque e, para o teclado, ao receber foco. */}
-      <button
-        ref={hint}
-        type="button"
-        onClick={openFromKeyboard}
-        className={`cursor-pointer font-serif text-small text-black/70 transition-[opacity,visibility] duration-300 focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-accent pointer-fine:not-focus-visible:sr-only ${invocation ? "invisible opacity-0" : ""}`}
+      {/* Centro da tela: foto e o único h1. Clicar nela também invoca o menu
+          (é parte da tela). Tamanhos em múltiplos de 4, um degrau menor no
+          celular, como o texto: 144×192 → 192×256. `tt.webp` é a versão
+          leve de `tt.jpg` (480×640). */}
+      <div
+        ref={center}
+        className="flex flex-col items-start transition-opacity duration-300 select-none data-[covered=true]:opacity-10"
       >
-        <span className="pointer-coarse:hidden">Clique em qualquer lugar</span>
-        <span className="hidden pointer-coarse:inline">Toque em qualquer lugar</span>
-      </button>
+        <img
+          src={photo}
+          alt="Retrato de Matheus Araripe"
+          width="480"
+          height="640"
+          decoding="async"
+          draggable={false}
+          className="h-48 w-36 object-cover sm:h-64 sm:w-48"
+        />
+        <h1 className="type-h1 mt-2 text-black/75">
+          Matheus Araripe,
+          <br />
+          um designer que programa
+        </h1>
+
+        {/* No desktop quem convida ao clique é a bolinha; o aviso só aparece
+            no toque e, para o teclado, ao receber foco. */}
+        <button
+          ref={hint}
+          type="button"
+          onClick={openFromKeyboard}
+          className={`mt-4 cursor-pointer font-serif text-small text-black/70 transition-[opacity,visibility] duration-300 focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-accent pointer-fine:not-focus-visible:sr-only ${invocation ? "invisible opacity-0" : ""}`}
+        >
+          <span className="pointer-coarse:hidden">
+            Clique em qualquer lugar
+          </span>
+          <span className="hidden pointer-coarse:inline">
+            Toque em qualquer lugar
+          </span>
+        </button>
+      </div>
 
       {invocation && (
         <Menu
