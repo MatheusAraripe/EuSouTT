@@ -2,7 +2,7 @@
 
 Portfólio de uma tela só em React 19 + Vite 8 + Tailwind CSS v4. Conteúdo em pt-BR.
 Identidade: papel `#f9f9f9`, preto em opacidades, serifada (Cactus Classical
-Serif) + mono (IBM Plex Mono). Toda a navegação acontece num **menu invocado
+Serif) + mono (Roboto Mono). Toda a navegação acontece num **menu invocado
 pelo clique**: o usuário clica em qualquer ponto e o menu surge ali.
 
 Repositório: https://github.com/MatheusAraripe/EuSouTT (branch `main`). O
@@ -42,7 +42,7 @@ de desenvolvimento (`/src/main.jsx`) e a tela fica branca. `base: "./"` no
 ## Arquitetura
 
 ```
-index.html              shell + SEO/OG + Google Fonts (Cactus Classical Serif, IBM Plex Mono 300/600)
+index.html              shell + SEO/OG + Google Fonts (Cactus Classical Serif, Roboto Mono 300/500)
 src/main.jsx            createRoot + StrictMode
 src/App.jsx             a tela: foto + h1 no centro, invocação do menu, bolinha (desktop), aviso (toque/teclado)
 src/components/AnchorDot.jsx  bolinha em canvas que segue o mouse e vira a âncora
@@ -168,10 +168,10 @@ na trilha.
   tamanho fora da escala nem `text-[…px]`. Os papéis são utilitários em
   `index.css`: `type-h1` (a frase sob a foto, único h1 — 16, não 20, para não
   competir com o menu) e `type-h2` (raiz e títulos, 20) em serifa regular; `type-h3` (subtítulos/meta) mono light caixa
-  alta; `type-h4` (links de navegação abaixo dos títulos) mono semibold;
+  alta; `type-h4` (links de navegação abaixo dos títulos) mono medium;
   `type-p` mono light. Dentro de `<button>`/`<a>` o papel é só visual (heading
   não pode morar ali); na trilha do menu vira a tag de verdade (`h2`/`h4` +
-  `h3` no meta). Plex Mono carrega 300 e 600 (o bold do protótipo pesava).
+  `h3` no meta). Roboto Mono carrega 300 e 500 (o bold do protótipo pesava).
 - **Centro da tela**: foto 144×192 → 192×256 a partir de 640px (múltiplos de
   4, um degrau como o texto) + h1 em duas linhas + o aviso. Clicar nela
   invoca o menu como qualquer ponto. Se o texto do menu (conteúdo recortado

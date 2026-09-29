@@ -18,9 +18,9 @@
     "semantic_hash": "c7426e1aec92af1a3f2a43f694f4cdb9"
   },
   "src/App.jsx": {
-    "mtime": 1790715430.2090423,
-    "seen": 1790715434.6840334,
-    "ast_hash": "eeb843fcb90940059fd1ac4215da856e",
+    "mtime": 1790716120.7767437,
+    "seen": 1790716125.2034857,
+    "ast_hash": "db02ef1a04d48da74967d049cc1d488e",
     "semantic_hash": ""
   },
   "src/components/GlitchText.jsx": {
@@ -60,9 +60,9 @@
     "semantic_hash": "a28dc4cb878325f3e9e5649f3e1469ac"
   },
   "index.html": {
-    "mtime": 1790714417.88771,
-    "seen": 1790714484.7538683,
-    "ast_hash": "f4a978a3adc26259276d3ae688b0cce1",
+    "mtime": 1790715901.6575248,
+    "seen": 1790715946.1187298,
+    "ast_hash": "8839dd64a3ddf7b22a86b8a8589b96ef",
     "semantic_hash": ""
   },
   "public/favicon.svg": {
@@ -78,9 +78,9 @@
     "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1790714431.2856555,
-    "seen": 1790714484.7538657,
-    "ast_hash": "585ac29d07e30f0ad40ec3226d372290",
+    "mtime": 1790715901.6575248,
+    "seen": 1790715946.118727,
+    "ast_hash": "8e7080b501bf18361c64f2daa8285370",
     "semantic_hash": ""
   },
   "src/components/Menu.jsx": {
