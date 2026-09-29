@@ -6,9 +6,9 @@
     "semantic_hash": "4bef2effc89f5c85884dee0e3f1c5446"
   },
   "eslint.config.js": {
-    "mtime": 1790642885.6466165,
-    "seen": 1790643240.8268132,
-    "ast_hash": "1015eb72bd84d702d73adcd4a6866f33",
+    "mtime": 1790647387.797717,
+    "seen": 1790647392.0290673,
+    "ast_hash": "3aa4b57d7f08181d86bde52a4dcb7f22",
     "semantic_hash": ""
   },
   "package.json": {
@@ -78,81 +78,15 @@
     "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1790647312.571234,
-    "seen": 1790647313.9585168,
-    "ast_hash": "0bd0f0795ad1de20f812493bdc228ea7",
-    "semantic_hash": ""
-  },
-  "legacy/components/Academico.jsx": {
-    "mtime": 1789056533.7283385,
-    "seen": 1790643240.8268156,
-    "ast_hash": "42c554792cb069acd9ee6bd78739c8e3",
-    "semantic_hash": ""
-  },
-  "legacy/components/CustomCursor.jsx": {
-    "mtime": 1789064338.0007157,
-    "seen": 1790643240.8268173,
-    "ast_hash": "23bd19374b8b90bb78295add7a5549bf",
-    "semantic_hash": ""
-  },
-  "legacy/components/Footer.jsx": {
-    "mtime": 1787867792.4693315,
-    "seen": 1790643240.8268182,
-    "ast_hash": "2a52b74c97447221599e9160a671950d",
-    "semantic_hash": ""
-  },
-  "legacy/components/ForceFieldText.jsx": {
-    "mtime": 1787867829.2377763,
-    "seen": 1790643240.8268192,
-    "ast_hash": "fd2590c2e0d79d267e2344dced90e9d6",
-    "semantic_hash": ""
-  },
-  "legacy/components/Header.jsx": {
-    "mtime": 1787867792.436013,
-    "seen": 1790643240.82682,
-    "ast_hash": "48b6a80e301fb12a37d0dffe6ab0972c",
-    "semantic_hash": ""
-  },
-  "legacy/components/Hero.jsx": {
-    "mtime": 1789061102.1282125,
-    "seen": 1790643240.8268209,
-    "ast_hash": "7b464df9c64b545f4ac5097c937d630a",
-    "semantic_hash": ""
-  },
-  "legacy/components/Sobre.jsx": {
-    "mtime": 1787868453.3425195,
-    "seen": 1790643240.8268218,
-    "ast_hash": "1ca0431d554eba65e59c8402c121befd",
-    "semantic_hash": ""
-  },
-  "legacy/components/Trabalhos.jsx": {
-    "mtime": 1787868109.424795,
-    "seen": 1790643240.826823,
-    "ast_hash": "66762ba4e4980afd5023e4b302dd4e56",
-    "semantic_hash": ""
-  },
-  "legacy/components/icons.jsx": {
-    "mtime": 1787867957.3858058,
-    "seen": 1790643240.8268244,
-    "ast_hash": "6db0e646c47e484d3364ecd34c2d7893",
-    "semantic_hash": ""
-  },
-  "legacy/components/skillIcons.jsx": {
-    "mtime": 1787867957.3541448,
-    "seen": 1790643240.8268251,
-    "ast_hash": "a5c11b5421f660379ce06b7c044531fd",
+    "mtime": 1790647387.7639327,
+    "seen": 1790647392.0290818,
+    "ast_hash": "7405ba935166f163d55fabe38470c6f9",
     "semantic_hash": ""
   },
   "src/components/Menu.jsx": {
     "mtime": 1790645961.8223734,
     "seen": 1790646021.7380536,
     "ast_hash": "867e6bec0be7d2cadb15e97122587465",
-    "semantic_hash": ""
-  },
-  "legacy/assets/hero.png": {
-    "mtime": 1786120047.9938488,
-    "seen": 1790643240.8268452,
-    "ast_hash": "aead493361b27e7510691c5d7072dfc1",
     "semantic_hash": ""
   },
   "src/components/AnchorDot.jsx": {

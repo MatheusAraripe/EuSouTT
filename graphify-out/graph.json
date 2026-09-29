@@ -219,54 +219,6 @@
       "source_location": "L138"
     },
     {
-      "id": "legacy_components_academico_academico",
-      "label": "Academico()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "Academico.jsx",
-      "file_type": "code",
-      "norm_label": "academico()",
-      "source_file": "legacy/components/Academico.jsx",
-      "source_location": "L4"
-    },
-    {
-      "id": "legacy_components_customcursor_customcursor",
-      "label": "CustomCursor()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 12,
-      "community_name": "CustomCursor.jsx",
-      "file_type": "code",
-      "norm_label": "customcursor()",
-      "source_file": "legacy/components/CustomCursor.jsx",
-      "source_location": "L34"
-    },
-    {
-      "id": "legacy_components_header_header",
-      "label": "Header()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 13,
-      "community_name": "Header.jsx",
-      "file_type": "code",
-      "norm_label": "header()",
-      "source_file": "legacy/components/Header.jsx",
-      "source_location": "L3"
-    },
-    {
-      "id": "legacy_components_hero_hero",
-      "label": "Hero()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Hero.jsx",
-      "file_type": "code",
-      "norm_label": "hero()",
-      "source_file": "legacy/components/Hero.jsx",
-      "source_location": "L18"
-    },
-    {
       "id": "src_app_app",
       "label": "App()",
       "_callable": true,
@@ -387,121 +339,13 @@
       "source_location": "L43"
     },
     {
-      "id": "legacy_components_footer_footer",
-      "label": "Footer()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "Footer.jsx",
-      "file_type": "code",
-      "norm_label": "footer()",
-      "source_file": "legacy/components/Footer.jsx",
-      "source_location": "L10"
-    },
-    {
-      "id": "legacy_components_forcefieldtext_forcefieldtext",
-      "label": "ForceFieldText()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "Footer.jsx",
-      "file_type": "code",
-      "norm_label": "forcefieldtext()",
-      "source_file": "legacy/components/ForceFieldText.jsx",
-      "source_location": "L12"
-    },
-    {
-      "id": "legacy_components_icons_arrowicon",
-      "label": "ArrowIcon()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "Footer.jsx",
-      "file_type": "code",
-      "norm_label": "arrowicon()",
-      "source_file": "legacy/components/icons.jsx",
-      "source_location": "L3"
-    },
-    {
-      "id": "legacy_components_icons_behancemark",
-      "label": "BehanceMark()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "Footer.jsx",
-      "file_type": "code",
-      "norm_label": "behancemark()",
-      "source_file": "legacy/components/icons.jsx",
-      "source_location": "L49"
-    },
-    {
-      "id": "legacy_components_icons_githubicon",
-      "label": "GitHubIcon()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "Footer.jsx",
-      "file_type": "code",
-      "norm_label": "githubicon()",
-      "source_file": "legacy/components/icons.jsx",
-      "source_location": "L31"
-    },
-    {
-      "id": "legacy_components_icons_linkedinicon",
-      "label": "LinkedInIcon()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "Footer.jsx",
-      "file_type": "code",
-      "norm_label": "linkedinicon()",
-      "source_file": "legacy/components/icons.jsx",
-      "source_location": "L39"
-    },
-    {
-      "id": "legacy_components_trabalhos_trabalhos",
-      "label": "Trabalhos()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "Footer.jsx",
-      "file_type": "code",
-      "norm_label": "trabalhos()",
-      "source_file": "legacy/components/Trabalhos.jsx",
-      "source_location": "L9"
-    },
-    {
-      "id": "legacy_components_sobre_polar",
-      "label": "polar()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "Sobre.jsx",
-      "file_type": "code",
-      "norm_label": "polar()",
-      "source_file": "legacy/components/Sobre.jsx",
-      "source_location": "L20"
-    },
-    {
-      "id": "legacy_components_sobre_sobre",
-      "label": "Sobre()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "Sobre.jsx",
-      "file_type": "code",
-      "norm_label": "sobre()",
-      "source_file": "legacy/components/Sobre.jsx",
-      "source_location": "L31"
-    },
-    {
       "id": "src_components_icons",
-      "label": "src/components/icons.jsx",
+      "label": "icons.jsx",
       "_origin": "ast",
       "community": 0,
       "community_name": "Menu.jsx",
       "file_type": "code",
-      "norm_label": "src/components/icons.jsx",
+      "norm_label": "icons.jsx",
       "source_file": "src/components/icons.jsx",
       "source_location": "L1"
     },
@@ -858,17 +702,6 @@
       "source_location": "L21"
     },
     {
-      "id": "legacy_components_academico",
-      "label": "Academico.jsx",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "Academico.jsx",
-      "file_type": "code",
-      "norm_label": "academico.jsx",
-      "source_file": "legacy/components/Academico.jsx",
-      "source_location": "L1"
-    },
-    {
       "id": "claude",
       "label": "CLAUDE.md",
       "_origin": "ast",
@@ -914,7 +747,7 @@
       "node_kind": "heading",
       "norm_label": "convencoes do projeto",
       "source_file": "CLAUDE.md",
-      "source_location": "L106"
+      "source_location": "L105"
     },
     {
       "id": "claude_eusoutt_portf\u00f3lio_de_matheus_araripe",
@@ -950,7 +783,7 @@
       "node_kind": "heading",
       "norm_label": "graphify",
       "source_file": "CLAUDE.md",
-      "source_location": "L172"
+      "source_location": "L169"
     },
     {
       "id": "claude_mantendo_este_arquivo_vivo",
@@ -962,7 +795,7 @@
       "node_kind": "heading",
       "norm_label": "mantendo este arquivo vivo",
       "source_file": "CLAUDE.md",
-      "source_location": "L159"
+      "source_location": "L156"
     },
     {
       "id": "claude_o_menu_regras_do_prot\u00f3tipo_em_figma",
@@ -974,7 +807,7 @@
       "node_kind": "heading",
       "norm_label": "o menu (regras do prototipo em `figma/`)",
       "source_file": "CLAUDE.md",
-      "source_location": "L53"
+      "source_location": "L52"
     },
     {
       "id": "claude_pend\u00eancias_conhecidas",
@@ -986,7 +819,7 @@
       "node_kind": "heading",
       "norm_label": "pendencias conhecidas",
       "source_file": "CLAUDE.md",
-      "source_location": "L139"
+      "source_location": "L138"
     },
     {
       "id": "claude_src_data_content_js_\u00e9_o_ponto_de_entrada_para_conte\u00fado",
@@ -998,40 +831,7 @@
       "node_kind": "heading",
       "norm_label": "`src/data/content.js` e o ponto de entrada para conteudo",
       "source_file": "CLAUDE.md",
-      "source_location": "L98"
-    },
-    {
-      "id": "legacy_components_customcursor",
-      "label": "CustomCursor.jsx",
-      "_origin": "ast",
-      "community": 12,
-      "community_name": "CustomCursor.jsx",
-      "file_type": "code",
-      "norm_label": "customcursor.jsx",
-      "source_file": "legacy/components/CustomCursor.jsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "legacy_components_header",
-      "label": "Header.jsx",
-      "_origin": "ast",
-      "community": 13,
-      "community_name": "Header.jsx",
-      "file_type": "code",
-      "norm_label": "header.jsx",
-      "source_file": "legacy/components/Header.jsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "legacy_components_hero",
-      "label": "Hero.jsx",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Hero.jsx",
-      "file_type": "code",
-      "norm_label": "hero.jsx",
-      "source_file": "legacy/components/Hero.jsx",
-      "source_location": "L1"
+      "source_location": "L97"
     },
     {
       "id": "src_app",
@@ -1307,116 +1107,6 @@
       "norm_label": "colors",
       "source_file": "src/components/GlitchText.jsx",
       "source_location": "L32"
-    },
-    {
-      "id": "legacy_components_footer",
-      "label": "Footer.jsx",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "Footer.jsx",
-      "file_type": "code",
-      "norm_label": "footer.jsx",
-      "source_file": "legacy/components/Footer.jsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "legacy_components_footer_marks",
-      "label": "marks",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "Footer.jsx",
-      "file_type": "code",
-      "norm_label": "marks",
-      "source_file": "legacy/components/Footer.jsx",
-      "source_location": "L4"
-    },
-    {
-      "id": "legacy_components_forcefieldtext",
-      "label": "ForceFieldText.jsx",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "Footer.jsx",
-      "file_type": "code",
-      "norm_label": "forcefieldtext.jsx",
-      "source_file": "legacy/components/ForceFieldText.jsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "legacy_components_icons",
-      "label": "legacy/components/icons.jsx",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "Footer.jsx",
-      "file_type": "code",
-      "norm_label": "legacy/components/icons.jsx",
-      "source_file": "legacy/components/icons.jsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "legacy_components_trabalhos",
-      "label": "Trabalhos.jsx",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "Footer.jsx",
-      "file_type": "code",
-      "norm_label": "trabalhos.jsx",
-      "source_file": "legacy/components/Trabalhos.jsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "legacy_components_skillicons",
-      "label": "skillIcons.jsx",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "Sobre.jsx",
-      "file_type": "code",
-      "norm_label": "skillicons.jsx",
-      "source_file": "legacy/components/skillIcons.jsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "legacy_components_skillicons_skillicons",
-      "label": "skillIcons",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "Sobre.jsx",
-      "file_type": "code",
-      "norm_label": "skillicons",
-      "source_file": "legacy/components/skillIcons.jsx",
-      "source_location": "L12"
-    },
-    {
-      "id": "legacy_components_skillicons_stroke",
-      "label": "stroke",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "Sobre.jsx",
-      "file_type": "code",
-      "norm_label": "stroke",
-      "source_file": "legacy/components/skillIcons.jsx",
-      "source_location": "L4"
-    },
-    {
-      "id": "legacy_components_sobre",
-      "label": "Sobre.jsx",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "Sobre.jsx",
-      "file_type": "code",
-      "norm_label": "sobre.jsx",
-      "source_file": "legacy/components/Sobre.jsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "legacy_components_sobre_nodes",
-      "label": "nodes",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "Sobre.jsx",
-      "file_type": "code",
-      "norm_label": "nodes",
-      "source_file": "legacy/components/Sobre.jsx",
-      "source_location": "L26"
     },
     {
       "id": "eslint_config",
@@ -1793,18 +1483,6 @@
   ],
   "links": [
     {
-      "source": "legacy_components_sobre_nodes",
-      "target": "legacy_components_sobre_polar",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "legacy/components/Sobre.jsx",
-      "source_location": "L28",
-      "weight": 1.0
-    },
-    {
       "source": "src_components_anchordot_anchordot",
       "target": "src_components_anchordot_easeout",
       "relation": "calls",
@@ -1958,78 +1636,6 @@
       "context": "call",
       "source_file": "src/components/Menu.jsx",
       "source_location": "L157",
-      "weight": 1.0
-    },
-    {
-      "source": "legacy_components_footer",
-      "target": "legacy_components_icons_behancemark",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "legacy/components/Footer.jsx",
-      "source_location": "L2",
-      "weight": 1.0
-    },
-    {
-      "source": "legacy_components_footer",
-      "target": "legacy_components_icons_githubicon",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "legacy/components/Footer.jsx",
-      "source_location": "L2",
-      "weight": 1.0
-    },
-    {
-      "source": "legacy_components_footer",
-      "target": "legacy_components_icons_linkedinicon",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "legacy/components/Footer.jsx",
-      "source_location": "L2",
-      "weight": 1.0
-    },
-    {
-      "source": "legacy_components_sobre",
-      "target": "legacy_components_skillicons_skillicons",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "legacy/components/Sobre.jsx",
-      "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "legacy_components_trabalhos",
-      "target": "legacy_components_forcefieldtext_forcefieldtext",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "legacy/components/Trabalhos.jsx",
-      "source_location": "L4",
-      "weight": 1.0
-    },
-    {
-      "source": "legacy_components_trabalhos",
-      "target": "legacy_components_icons_arrowicon",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "legacy/components/Trabalhos.jsx",
-      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -2273,54 +1879,6 @@
       "weight": 1.0
     },
     {
-      "source": "legacy_components_footer",
-      "target": "legacy_components_icons",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "legacy/components/Footer.jsx",
-      "source_location": "L2",
-      "weight": 1.0
-    },
-    {
-      "source": "legacy_components_sobre",
-      "target": "legacy_components_skillicons",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "legacy/components/Sobre.jsx",
-      "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "legacy_components_trabalhos",
-      "target": "legacy_components_forcefieldtext",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "legacy/components/Trabalhos.jsx",
-      "source_location": "L4",
-      "weight": 1.0
-    },
-    {
-      "source": "legacy_components_trabalhos",
-      "target": "legacy_components_icons",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "legacy/components/Trabalhos.jsx",
-      "source_location": "L5",
-      "weight": 1.0
-    },
-    {
       "source": "src_app",
       "target": "src_components_anchordot",
       "relation": "imports_from",
@@ -2411,7 +1969,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CLAUDE.md",
-      "source_location": "L53",
+      "source_location": "L52",
       "weight": 1.0
     },
     {
@@ -2422,7 +1980,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CLAUDE.md",
-      "source_location": "L98",
+      "source_location": "L97",
       "weight": 1.0
     },
     {
@@ -2444,7 +2002,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CLAUDE.md",
-      "source_location": "L106",
+      "source_location": "L105",
       "weight": 1.0
     },
     {
@@ -2466,7 +2024,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CLAUDE.md",
-      "source_location": "L139",
+      "source_location": "L138",
       "weight": 1.0
     },
     {
@@ -2477,7 +2035,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CLAUDE.md",
-      "source_location": "L159",
+      "source_location": "L156",
       "weight": 1.0
     },
     {
@@ -2488,7 +2046,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CLAUDE.md",
-      "source_location": "L172",
+      "source_location": "L169",
       "weight": 1.0
     },
     {
@@ -2500,193 +2058,6 @@
       "confidence_score": 1.0,
       "source_file": "CLAUDE.md",
       "source_location": "L34",
-      "weight": 1.0
-    },
-    {
-      "source": "legacy_components_academico",
-      "target": "legacy_components_academico_academico",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "legacy/components/Academico.jsx",
-      "source_location": "L4",
-      "weight": 1.0
-    },
-    {
-      "source": "legacy_components_customcursor",
-      "target": "legacy_components_customcursor_customcursor",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "legacy/components/CustomCursor.jsx",
-      "source_location": "L34",
-      "weight": 1.0
-    },
-    {
-      "source": "legacy_components_footer",
-      "target": "legacy_components_footer_footer",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "legacy/components/Footer.jsx",
-      "source_location": "L10",
-      "weight": 1.0
-    },
-    {
-      "source": "legacy_components_footer",
-      "target": "legacy_components_footer_marks",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "legacy/components/Footer.jsx",
-      "source_location": "L4",
-      "weight": 1.0
-    },
-    {
-      "source": "legacy_components_forcefieldtext",
-      "target": "legacy_components_forcefieldtext_forcefieldtext",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "legacy/components/ForceFieldText.jsx",
-      "source_location": "L12",
-      "weight": 1.0
-    },
-    {
-      "source": "legacy_components_header",
-      "target": "legacy_components_header_header",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "legacy/components/Header.jsx",
-      "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "legacy_components_hero",
-      "target": "legacy_components_hero_hero",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "legacy/components/Hero.jsx",
-      "source_location": "L18",
-      "weight": 1.0
-    },
-    {
-      "source": "legacy_components_icons",
-      "target": "legacy_components_icons_arrowicon",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "legacy/components/icons.jsx",
-      "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "legacy_components_icons",
-      "target": "legacy_components_icons_githubicon",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "legacy/components/icons.jsx",
-      "source_location": "L31",
-      "weight": 1.0
-    },
-    {
-      "source": "legacy_components_icons",
-      "target": "legacy_components_icons_linkedinicon",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "legacy/components/icons.jsx",
-      "source_location": "L39",
-      "weight": 1.0
-    },
-    {
-      "source": "legacy_components_icons",
-      "target": "legacy_components_icons_behancemark",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "legacy/components/icons.jsx",
-      "source_location": "L49",
-      "weight": 1.0
-    },
-    {
-      "source": "legacy_components_skillicons",
-      "target": "legacy_components_skillicons_skillicons",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "legacy/components/skillIcons.jsx",
-      "source_location": "L12",
-      "weight": 1.0
-    },
-    {
-      "source": "legacy_components_skillicons",
-      "target": "legacy_components_skillicons_stroke",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "legacy/components/skillIcons.jsx",
-      "source_location": "L4",
-      "weight": 1.0
-    },
-    {
-      "source": "legacy_components_sobre",
-      "target": "legacy_components_sobre_polar",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "legacy/components/Sobre.jsx",
-      "source_location": "L20",
-      "weight": 1.0
-    },
-    {
-      "source": "legacy_components_sobre",
-      "target": "legacy_components_sobre_nodes",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "legacy/components/Sobre.jsx",
-      "source_location": "L26",
-      "weight": 1.0
-    },
-    {
-      "source": "legacy_components_sobre",
-      "target": "legacy_components_sobre_sobre",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "legacy/components/Sobre.jsx",
-      "source_location": "L31",
-      "weight": 1.0
-    },
-    {
-      "source": "legacy_components_trabalhos",
-      "target": "legacy_components_trabalhos_trabalhos",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "legacy/components/Trabalhos.jsx",
-      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -3772,5 +3143,5 @@
       "source_file": "index.html"
     }
   ],
-  "built_at_commit": "11208ef0c89bba4982a94bb5a61b6cb71f22e06a"
+  "built_at_commit": "f009c966a7bcb9facf12660285b9f79479d2620c"
 }

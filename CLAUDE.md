@@ -15,7 +15,7 @@ nome antigo da pasta, sobrevive só na marca do favicon.
 npm run dev       # servidor Vite em http://localhost:5173
 npm run build     # build de produção em dist/
 npm run preview   # serve o build
-npm run lint      # ESLint flat config (ignora dist/ e legacy/)
+npm run lint      # ESLint flat config (ignora dist/)
 ```
 
 Não há testes configurados. Não há TypeScript — JS/JSX puro.
@@ -45,7 +45,6 @@ src/index.css           tokens (@theme), barra de rolagem do menu, reduced-motio
 src/data/content.js     FONTE ÚNICA DE CONTEÚDO — a árvore `menu`
 src/assets/             CV (PDF) e foto `tt.jpg` — ainda não usados pela tela
 Figma/                  protótipo (.fig) + prints das regras do menu (local, fora do git)
-legacy/                 interface antiga (cursor, hero, header…), fora do build
 ```
 
 Não há roteador, estado global, backend nem fetch. Tudo é estático e client-side.
@@ -149,8 +148,6 @@ chave do FLIP). A tipografia sai do nível (`TITLE` em `Menu.jsx`), não do nó.
   ("Experimental") também é chute.
 - `link` dos trabalhos está nos dados mas nenhuma tela o exibe ainda.
 - `socials` (Contato) ainda aponta para `"#"`.
-- `legacy/` guarda a interface antiga, versionada no primeiro commit; pode
-  ser apagada — o histórico do git a preserva.
 - A pasta local ainda se chama `alia`; renomear para `EuSouTT` com o Claude
   Code e o VS Code fechados (o Windows trava a pasta em uso).
 - `README.md` ainda é o boilerplate do template Vite.
