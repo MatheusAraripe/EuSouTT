@@ -1,12 +1,13 @@
-# alia — Portfólio de Matheus Araripe
+# EuSouTT — Portfólio de Matheus Araripe
 
 Portfólio de uma tela só em React 19 + Vite 8 + Tailwind CSS v4. Conteúdo em pt-BR.
 Identidade: papel `#f9f9f9`, preto em opacidades, serifada (Cactus Classical
 Serif) + mono (IBM Plex Mono). Toda a navegação acontece num **menu invocado
 pelo clique**: o usuário clica em qualquer ponto e o menu surge ali.
 
-O nome da pasta é `alia` (também o nome da marca no favicon); o produto é o site
-pessoal de Matheus Araripe — designer que programa.
+Repositório: https://github.com/MatheusAraripe/EuSouTT (branch `main`). O
+produto é o site pessoal de Matheus Araripe — designer que programa. "alia",
+nome antigo da pasta, sobrevive só na marca do favicon.
 
 ## Comandos
 
@@ -20,6 +21,16 @@ npm run lint      # ESLint flat config (ignora dist/ e legacy/)
 Não há testes configurados. Não há TypeScript — JS/JSX puro.
 `.claude/launch.json` já define a config de launch (`npm run dev`, porta 5173).
 
+### Git
+
+- Fora do repositório (`.gitignore`): `Figma/` — o `.fig` traz material de
+  cliente (proposta com valores) e não deve ser publicado —, `dist/`,
+  `node_modules/` e os arquivos locais do graphify (`cache/`,
+  `.graphify_python`, cópias datadas `20*/`). O grafo em si é versionado.
+- `.claude/settings.json` é versionado, mas os hooks do graphify apontam para
+  caminhos absolutos desta máquina.
+- `src/assets/` tem o CV e a foto — são públicos no repositório.
+
 ## Arquitetura
 
 ```
@@ -32,7 +43,8 @@ src/components/GlitchText.jsx  glitch por caractere no hover/touch
 src/components/icons.jsx       Spark (marca do clique) e ArrowBack
 src/index.css           tokens (@theme), barra de rolagem do menu, reduced-motion
 src/data/content.js     FONTE ÚNICA DE CONTEÚDO — a árvore `menu`
-Figma/                  protótipo (.fig) + prints das regras do menu (Desktop 2/7/8)
+src/assets/             CV (PDF) e foto `tt.jpg` — ainda não usados pela tela
+Figma/                  protótipo (.fig) + prints das regras do menu (local, fora do git)
 legacy/                 interface antiga (cursor, hero, header…), fora do build
 ```
 
@@ -137,8 +149,10 @@ chave do FLIP). A tipografia sai do nível (`TITLE` em `Menu.jsx`), não do nó.
   ("Experimental") também é chute.
 - `link` dos trabalhos está nos dados mas nenhuma tela o exibe ainda.
 - `socials` (Contato) ainda aponta para `"#"`.
-- `legacy/` guarda a interface antiga só por segurança (o projeto não é git);
-  pode ser apagada.
+- `legacy/` guarda a interface antiga, versionada no primeiro commit; pode
+  ser apagada — o histórico do git a preserva.
+- A pasta local ainda se chama `alia`; renomear para `EuSouTT` com o Claude
+  Code e o VS Code fechados (o Windows trava a pasta em uso).
 - `README.md` ainda é o boilerplate do template Vite.
 - `public/favicon.svg` carrega peso morto do export do Figma.
 

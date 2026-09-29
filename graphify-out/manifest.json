@@ -78,9 +78,9 @@
     "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1790646018.8949108,
-    "seen": 1790646021.7380607,
-    "ast_hash": "682c73be764ec0e052af137f06062bdf",
+    "mtime": 1790647312.571234,
+    "seen": 1790647313.9585168,
+    "ast_hash": "0bd0f0795ad1de20f812493bdc228ea7",
     "semantic_hash": ""
   },
   "legacy/components/Academico.jsx": {
@@ -149,24 +149,6 @@
     "ast_hash": "867e6bec0be7d2cadb15e97122587465",
     "semantic_hash": ""
   },
-  "Figma/Desktop - 2.png": {
-    "mtime": 1790642235.2683635,
-    "seen": 1790643240.8268423,
-    "ast_hash": "81d21b57baf81104bed65df674e21fc0",
-    "semantic_hash": ""
-  },
-  "Figma/Desktop - 7.png": {
-    "mtime": 1790642140.861939,
-    "seen": 1790643240.8268435,
-    "ast_hash": "72bcace8c4f4eefe8f3b80107f9b47ed",
-    "semantic_hash": ""
-  },
-  "Figma/Desktop - 8.png": {
-    "mtime": 1790642165.1758437,
-    "seen": 1790643240.8268442,
-    "ast_hash": "7c2a5ab7cb4b6e45caeff0bf782104c5",
-    "semantic_hash": ""
-  },
   "legacy/assets/hero.png": {
     "mtime": 1786120047.9938488,
     "seen": 1790643240.8268452,
@@ -185,16 +167,10 @@
     "ast_hash": "9e0c6084f8538510aff71210cb8f8ef1",
     "semantic_hash": ""
   },
-  "image.png": {
-    "mtime": 1790645618.388445,
-    "seen": 1790646021.73807,
-    "ast_hash": "72dcd3320d921964d3a6b9faa011b447",
-    "semantic_hash": ""
-  },
-  "image0.png": {
-    "mtime": 1790645447.927655,
-    "seen": 1790646021.7380712,
-    "ast_hash": "4eebd87d1f1a02d5a3c0f8d67c708ad2",
+  "src/assets/image/tt.jpg": {
+    "mtime": 1786648949.5843387,
+    "seen": 1790647313.958525,
+    "ast_hash": "9fa54d66d9f4ab28484bc5b6fcf87a1d",
     "semantic_hash": ""
   }
 }

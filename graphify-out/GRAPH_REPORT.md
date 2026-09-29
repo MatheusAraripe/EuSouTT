@@ -1,13 +1,18 @@
 # Graph Report - alia  (2026-09-28)
 
 ## Corpus Check
-- 24 files · ~17,686 words
+- 24 files · ~21,263 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 143 nodes · 169 edges · 16 communities
+- 144 nodes · 170 edges · 16 communities
 - Extraction: 91% EXTRACTED · 8% INFERRED · 2% AMBIGUOUS · INFERRED: 13 edges (avg confidence: 0.86)
 - Token cost: 0 input · 0 output
+
+## Graph Freshness
+- Built from commit: `11208ef0`
+- Run `git rev-parse HEAD` and compare to check if the graph is stale.
+- Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - Menu.jsx
@@ -18,12 +23,12 @@
 - GlitchText.jsx
 - Footer.jsx
 - Sobre.jsx
-- alia — Portfólio de Matheus Araripe
+- EuSouTT — Portfólio de Matheus Araripe
 - AnchorDot.jsx
 
 ## God Nodes (most connected - your core abstractions)
 1. `GlitchText()` - 7 edges
-2. `alia — Portfólio de Matheus Araripe` - 7 edges
+2. `EuSouTT — Portfólio de Matheus Araripe` - 7 edges
 3. `React + Vite Template Setup` - 6 edges
 4. `scripts` - 5 edges
 5. `Menu()` - 5 edges
@@ -86,9 +91,9 @@ Nodes (6): marks, ForceFieldText(), ArrowIcon(), BehanceMark(), GitHubIcon(), Li
 Cohesion: 0.38
 Nodes (4): skillIcons, stroke, nodes, polar()
 
-### Community 11 - "alia — Portfólio de Matheus Araripe"
-Cohesion: 0.20
-Nodes (9): alia — Portfólio de Matheus Araripe, Arquitetura, Comandos, Convenções do projeto, graphify, Mantendo este arquivo vivo, O menu (regras do protótipo em `Figma/`), Pendências conhecidas (+1 more)
+### Community 11 - "EuSouTT — Portfólio de Matheus Araripe"
+Cohesion: 0.18
+Nodes (10): Arquitetura, Comandos, Convenções do projeto, EuSouTT — Portfólio de Matheus Araripe, Git, graphify, Mantendo este arquivo vivo, O menu (regras do protótipo em `Figma/`) (+2 more)
 
 ### Community 15 - "AnchorDot.jsx"
 Cohesion: 0.25
@@ -116,7 +121,7 @@ _Questions this graph is uniquely positioned to answer:_
 - **What is the exact relationship between `Static Site Identity Asset (public/ favicon)` and `Display-P3 Wide-Gamut Color Fallback`?**
   _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
 - **Why does `devDependencies` connect `devDependencies` to `package.json`?**
-  _High betweenness centrality (0.055) - this node is a cross-community bridge._
+  _High betweenness centrality (0.054) - this node is a cross-community bridge._
 - **What connects `marks`, `stroke`, `name` to the rest of the system?**
   _42 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Menu.jsx` be split into smaller, more focused modules?**

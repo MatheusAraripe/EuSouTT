@@ -873,22 +873,10 @@
       "label": "CLAUDE.md",
       "_origin": "ast",
       "community": 11,
-      "community_name": "alia \u2014 Portf\u00f3lio de Matheus Araripe",
+      "community_name": "EuSouTT \u2014 Portf\u00f3lio de Matheus Araripe",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "claude.md",
-      "source_file": "CLAUDE.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "claude_alia_portf\u00f3lio_de_matheus_araripe",
-      "label": "alia \u2014 Portf\u00f3lio de Matheus Araripe",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "alia \u2014 Portf\u00f3lio de Matheus Araripe",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "alia \u2014 portfolio de matheus araripe",
       "source_file": "CLAUDE.md",
       "source_location": "L1"
     },
@@ -897,96 +885,120 @@
       "label": "Arquitetura",
       "_origin": "ast",
       "community": 11,
-      "community_name": "alia \u2014 Portf\u00f3lio de Matheus Araripe",
+      "community_name": "EuSouTT \u2014 Portf\u00f3lio de Matheus Araripe",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "arquitetura",
       "source_file": "CLAUDE.md",
-      "source_location": "L23"
+      "source_location": "L34"
     },
     {
       "id": "claude_comandos",
       "label": "Comandos",
       "_origin": "ast",
       "community": 11,
-      "community_name": "alia \u2014 Portf\u00f3lio de Matheus Araripe",
+      "community_name": "EuSouTT \u2014 Portf\u00f3lio de Matheus Araripe",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "comandos",
       "source_file": "CLAUDE.md",
-      "source_location": "L11"
+      "source_location": "L12"
     },
     {
       "id": "claude_conven\u00e7\u00f5es_do_projeto",
       "label": "Conven\u00e7\u00f5es do projeto",
       "_origin": "ast",
       "community": 11,
-      "community_name": "alia \u2014 Portf\u00f3lio de Matheus Araripe",
+      "community_name": "EuSouTT \u2014 Portf\u00f3lio de Matheus Araripe",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "convencoes do projeto",
       "source_file": "CLAUDE.md",
-      "source_location": "L94"
+      "source_location": "L106"
+    },
+    {
+      "id": "claude_eusoutt_portf\u00f3lio_de_matheus_araripe",
+      "label": "EuSouTT \u2014 Portf\u00f3lio de Matheus Araripe",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "EuSouTT \u2014 Portf\u00f3lio de Matheus Araripe",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "eusoutt \u2014 portfolio de matheus araripe",
+      "source_file": "CLAUDE.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "claude_git",
+      "label": "Git",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "EuSouTT \u2014 Portf\u00f3lio de Matheus Araripe",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "git",
+      "source_file": "CLAUDE.md",
+      "source_location": "L24"
     },
     {
       "id": "claude_graphify",
       "label": "graphify",
       "_origin": "ast",
       "community": 11,
-      "community_name": "alia \u2014 Portf\u00f3lio de Matheus Araripe",
+      "community_name": "EuSouTT \u2014 Portf\u00f3lio de Matheus Araripe",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "graphify",
       "source_file": "CLAUDE.md",
-      "source_location": "L158"
+      "source_location": "L172"
     },
     {
       "id": "claude_mantendo_este_arquivo_vivo",
       "label": "Mantendo este arquivo vivo",
       "_origin": "ast",
       "community": 11,
-      "community_name": "alia \u2014 Portf\u00f3lio de Matheus Araripe",
+      "community_name": "EuSouTT \u2014 Portf\u00f3lio de Matheus Araripe",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "mantendo este arquivo vivo",
       "source_file": "CLAUDE.md",
-      "source_location": "L145"
+      "source_location": "L159"
     },
     {
       "id": "claude_o_menu_regras_do_prot\u00f3tipo_em_figma",
       "label": "O menu (regras do prot\u00f3tipo em `Figma/`)",
       "_origin": "ast",
       "community": 11,
-      "community_name": "alia \u2014 Portf\u00f3lio de Matheus Araripe",
+      "community_name": "EuSouTT \u2014 Portf\u00f3lio de Matheus Araripe",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "o menu (regras do prototipo em `figma/`)",
       "source_file": "CLAUDE.md",
-      "source_location": "L41"
+      "source_location": "L53"
     },
     {
       "id": "claude_pend\u00eancias_conhecidas",
       "label": "Pend\u00eancias conhecidas",
       "_origin": "ast",
       "community": 11,
-      "community_name": "alia \u2014 Portf\u00f3lio de Matheus Araripe",
+      "community_name": "EuSouTT \u2014 Portf\u00f3lio de Matheus Araripe",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "pendencias conhecidas",
       "source_file": "CLAUDE.md",
-      "source_location": "L127"
+      "source_location": "L139"
     },
     {
       "id": "claude_src_data_content_js_\u00e9_o_ponto_de_entrada_para_conte\u00fado",
       "label": "`src/data/content.js` \u00e9 o ponto de entrada para conte\u00fado",
       "_origin": "ast",
       "community": 11,
-      "community_name": "alia \u2014 Portf\u00f3lio de Matheus Araripe",
+      "community_name": "EuSouTT \u2014 Portf\u00f3lio de Matheus Araripe",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "`src/data/content.js` e o ponto de entrada para conteudo",
       "source_file": "CLAUDE.md",
-      "source_location": "L86"
+      "source_location": "L98"
     },
     {
       "id": "legacy_components_customcursor",
@@ -2382,79 +2394,13 @@
     },
     {
       "source": "claude",
-      "target": "claude_alia_portf\u00f3lio_de_matheus_araripe",
+      "target": "claude_eusoutt_portf\u00f3lio_de_matheus_araripe",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CLAUDE.md",
       "source_location": "L1",
-      "weight": 1.0
-    },
-    {
-      "source": "claude_alia_portf\u00f3lio_de_matheus_araripe",
-      "target": "claude_comandos",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": "L11",
-      "weight": 1.0
-    },
-    {
-      "source": "claude_alia_portf\u00f3lio_de_matheus_araripe",
-      "target": "claude_pend\u00eancias_conhecidas",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": "L127",
-      "weight": 1.0
-    },
-    {
-      "source": "claude_alia_portf\u00f3lio_de_matheus_araripe",
-      "target": "claude_mantendo_este_arquivo_vivo",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": "L145",
-      "weight": 1.0
-    },
-    {
-      "source": "claude_alia_portf\u00f3lio_de_matheus_araripe",
-      "target": "claude_graphify",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": "L158",
-      "weight": 1.0
-    },
-    {
-      "source": "claude_alia_portf\u00f3lio_de_matheus_araripe",
-      "target": "claude_arquitetura",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": "L23",
-      "weight": 1.0
-    },
-    {
-      "source": "claude_alia_portf\u00f3lio_de_matheus_araripe",
-      "target": "claude_conven\u00e7\u00f5es_do_projeto",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": "L94",
       "weight": 1.0
     },
     {
@@ -2465,7 +2411,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CLAUDE.md",
-      "source_location": "L41",
+      "source_location": "L53",
       "weight": 1.0
     },
     {
@@ -2476,7 +2422,84 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CLAUDE.md",
-      "source_location": "L86",
+      "source_location": "L98",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_comandos",
+      "target": "claude_git",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_eusoutt_portf\u00f3lio_de_matheus_araripe",
+      "target": "claude_conven\u00e7\u00f5es_do_projeto",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": "L106",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_eusoutt_portf\u00f3lio_de_matheus_araripe",
+      "target": "claude_comandos",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_eusoutt_portf\u00f3lio_de_matheus_araripe",
+      "target": "claude_pend\u00eancias_conhecidas",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": "L139",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_eusoutt_portf\u00f3lio_de_matheus_araripe",
+      "target": "claude_mantendo_este_arquivo_vivo",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": "L159",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_eusoutt_portf\u00f3lio_de_matheus_araripe",
+      "target": "claude_graphify",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": "L172",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_eusoutt_portf\u00f3lio_de_matheus_araripe",
+      "target": "claude_arquitetura",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": "L34",
       "weight": 1.0
     },
     {
@@ -3748,5 +3771,6 @@
       "confidence_score": 0.85,
       "source_file": "index.html"
     }
-  ]
+  ],
+  "built_at_commit": "11208ef0c89bba4982a94bb5a61b6cb71f22e06a"
 }
