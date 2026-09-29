@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+/* Único acento de cor do site, herdado da marca do favicon. Hoje só pinta o
+   anel de foco; o resto é preto em opacidades sobre o papel. */
+@theme {
+  --color-accent: #863bff;
+  --color-paper: #f9f9f9;
+  --font-serif: "Cactus Classical Serif", Georgia, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-paper);
+  color: #000;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* --- Menu ------------------------------------------------------------------- */
+/* A caixa é invisível; a barra de rolagem é só um fio, sem setas nem trilho,
+   e só aparece com o cursor sobre o menu ou foco de teclado dentro dele
+   (:focus-visible — o foco que um clique deixa no item não conta).
+   O fio é pintado com `currentColor` e o que muda é a `color` da própria
+   caixa: o Chromium nem sempre repinta ::-webkit-scrollbar-thumb quando só
+   o :hover muda, mas repinta quando muda a cor herdada. O texto do menu
+   recebe a cor de volta no wrapper interno (`text-black` em Menu.jsx).
+   Chromium/Safari usam ::-webkit-scrollbar — lá `scrollbar-width`/`-color`
+   desligariam essas regras e trariam as setas de volta. Firefox não tem
+   setas e usa as propriedades padrão. */
+.menu-scroll {
+  color: transparent;
+  transition: color 200ms ease;
+}
+
+.menu-scroll:is(:hover, :has(:focus-visible)) {
+  color: rgb(0 0 0 / 0.15);
+}
+
+.menu-scroll::-webkit-scrollbar {
+  width: 3px;
+}
+
+.menu-scroll::-webkit-scrollbar-button {
+  display: none;
+}
+
+.menu-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.menu-scroll::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 3px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  .menu-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: currentColor transparent;
+  }
+}
+
+/* Marca da âncora surgindo no ponto do clique. Anima `transform`, que compõe
+   com `translate`/`scale` individuais (centralização e espelhamento). */
+.menu-pop {
+  animation: menu-pop 380ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes menu-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+}
+
+/* --- Acessibilidade --------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

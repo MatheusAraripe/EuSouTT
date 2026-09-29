@@ -1,0 +1,200 @@
+{
+  ".claude/launch.json": {
+    "mtime": 1787867980.7536883,
+    "seen": 1789052563.3570905,
+    "ast_hash": "4bef2effc89f5c85884dee0e3f1c5446",
+    "semantic_hash": "4bef2effc89f5c85884dee0e3f1c5446"
+  },
+  "eslint.config.js": {
+    "mtime": 1790642885.6466165,
+    "seen": 1790643240.8268132,
+    "ast_hash": "1015eb72bd84d702d73adcd4a6866f33",
+    "semantic_hash": ""
+  },
+  "package.json": {
+    "mtime": 1787867972.0034413,
+    "seen": 1789052563.3570967,
+    "ast_hash": "c7426e1aec92af1a3f2a43f694f4cdb9",
+    "semantic_hash": "c7426e1aec92af1a3f2a43f694f4cdb9"
+  },
+  "src/App.jsx": {
+    "mtime": 1790644047.1414337,
+    "seen": 1790644265.2494776,
+    "ast_hash": "81e638dc519e75d6138c221be5f54795",
+    "semantic_hash": ""
+  },
+  "src/components/GlitchText.jsx": {
+    "mtime": 1790642963.493862,
+    "seen": 1790643240.8268313,
+    "ast_hash": "db18a53591b08fd1e6104ca5f999a20a",
+    "semantic_hash": ""
+  },
+  "src/components/icons.jsx": {
+    "mtime": 1790644039.25592,
+    "seen": 1790644265.2494838,
+    "ast_hash": "d232a7181e89aeae4aee1170f3abea16",
+    "semantic_hash": ""
+  },
+  "src/data/content.js": {
+    "mtime": 1790642750.98831,
+    "seen": 1790643240.8268354,
+    "ast_hash": "404949ee7c5bb9b8cc61d96923384baa",
+    "semantic_hash": ""
+  },
+  "src/main.jsx": {
+    "mtime": 1786120047.9621005,
+    "seen": 1789052563.357108,
+    "ast_hash": "e13723e2574429d9a6d849727e3ff695",
+    "semantic_hash": "e13723e2574429d9a6d849727e3ff695"
+  },
+  "vite.config.js": {
+    "mtime": 1787257557.7260551,
+    "seen": 1789052563.357109,
+    "ast_hash": "39166301d935bbe59e10604bbceab7a4",
+    "semantic_hash": "39166301d935bbe59e10604bbceab7a4"
+  },
+  "README.md": {
+    "mtime": 1786120077.7955267,
+    "seen": 1789052563.3571098,
+    "ast_hash": "a28dc4cb878325f3e9e5649f3e1469ac",
+    "semantic_hash": "a28dc4cb878325f3e9e5649f3e1469ac"
+  },
+  "index.html": {
+    "mtime": 1790642885.6151404,
+    "seen": 1790643240.8268414,
+    "ast_hash": "f7148945fb725a1c458f9db342982ddc",
+    "semantic_hash": ""
+  },
+  "public/favicon.svg": {
+    "mtime": 1786120048.0438159,
+    "seen": 1789052563.3571112,
+    "ast_hash": "7e840862161341271697daa99a40d76b",
+    "semantic_hash": "7e840862161341271697daa99a40d76b"
+  },
+  ".claude/settings.json": {
+    "mtime": 1789052633.3579507,
+    "seen": 1789057177.1976585,
+    "ast_hash": "51e37a2e90440bf46b9ab4c9126e854f",
+    "semantic_hash": ""
+  },
+  "CLAUDE.md": {
+    "mtime": 1790646018.8949108,
+    "seen": 1790646021.7380607,
+    "ast_hash": "682c73be764ec0e052af137f06062bdf",
+    "semantic_hash": ""
+  },
+  "legacy/components/Academico.jsx": {
+    "mtime": 1789056533.7283385,
+    "seen": 1790643240.8268156,
+    "ast_hash": "42c554792cb069acd9ee6bd78739c8e3",
+    "semantic_hash": ""
+  },
+  "legacy/components/CustomCursor.jsx": {
+    "mtime": 1789064338.0007157,
+    "seen": 1790643240.8268173,
+    "ast_hash": "23bd19374b8b90bb78295add7a5549bf",
+    "semantic_hash": ""
+  },
+  "legacy/components/Footer.jsx": {
+    "mtime": 1787867792.4693315,
+    "seen": 1790643240.8268182,
+    "ast_hash": "2a52b74c97447221599e9160a671950d",
+    "semantic_hash": ""
+  },
+  "legacy/components/ForceFieldText.jsx": {
+    "mtime": 1787867829.2377763,
+    "seen": 1790643240.8268192,
+    "ast_hash": "fd2590c2e0d79d267e2344dced90e9d6",
+    "semantic_hash": ""
+  },
+  "legacy/components/Header.jsx": {
+    "mtime": 1787867792.436013,
+    "seen": 1790643240.82682,
+    "ast_hash": "48b6a80e301fb12a37d0dffe6ab0972c",
+    "semantic_hash": ""
+  },
+  "legacy/components/Hero.jsx": {
+    "mtime": 1789061102.1282125,
+    "seen": 1790643240.8268209,
+    "ast_hash": "7b464df9c64b545f4ac5097c937d630a",
+    "semantic_hash": ""
+  },
+  "legacy/components/Sobre.jsx": {
+    "mtime": 1787868453.3425195,
+    "seen": 1790643240.8268218,
+    "ast_hash": "1ca0431d554eba65e59c8402c121befd",
+    "semantic_hash": ""
+  },
+  "legacy/components/Trabalhos.jsx": {
+    "mtime": 1787868109.424795,
+    "seen": 1790643240.826823,
+    "ast_hash": "66762ba4e4980afd5023e4b302dd4e56",
+    "semantic_hash": ""
+  },
+  "legacy/components/icons.jsx": {
+    "mtime": 1787867957.3858058,
+    "seen": 1790643240.8268244,
+    "ast_hash": "6db0e646c47e484d3364ecd34c2d7893",
+    "semantic_hash": ""
+  },
+  "legacy/components/skillIcons.jsx": {
+    "mtime": 1787867957.3541448,
+    "seen": 1790643240.8268251,
+    "ast_hash": "a5c11b5421f660379ce06b7c044531fd",
+    "semantic_hash": ""
+  },
+  "src/components/Menu.jsx": {
+    "mtime": 1790645961.8223734,
+    "seen": 1790646021.7380536,
+    "ast_hash": "867e6bec0be7d2cadb15e97122587465",
+    "semantic_hash": ""
+  },
+  "Figma/Desktop - 2.png": {
+    "mtime": 1790642235.2683635,
+    "seen": 1790643240.8268423,
+    "ast_hash": "81d21b57baf81104bed65df674e21fc0",
+    "semantic_hash": ""
+  },
+  "Figma/Desktop - 7.png": {
+    "mtime": 1790642140.861939,
+    "seen": 1790643240.8268435,
+    "ast_hash": "72bcace8c4f4eefe8f3b80107f9b47ed",
+    "semantic_hash": ""
+  },
+  "Figma/Desktop - 8.png": {
+    "mtime": 1790642165.1758437,
+    "seen": 1790643240.8268442,
+    "ast_hash": "7c2a5ab7cb4b6e45caeff0bf782104c5",
+    "semantic_hash": ""
+  },
+  "legacy/assets/hero.png": {
+    "mtime": 1786120047.9938488,
+    "seen": 1790643240.8268452,
+    "ast_hash": "aead493361b27e7510691c5d7072dfc1",
+    "semantic_hash": ""
+  },
+  "src/components/AnchorDot.jsx": {
+    "mtime": 1790644028.721006,
+    "seen": 1790644265.2494795,
+    "ast_hash": "9db70cfa15494131094ba6ee1027c89c",
+    "semantic_hash": ""
+  },
+  "src/assets/CV/Matheus_Araripe_CV.pdf": {
+    "mtime": 1790614054.7898796,
+    "seen": 1790646021.738065,
+    "ast_hash": "9e0c6084f8538510aff71210cb8f8ef1",
+    "semantic_hash": ""
+  },
+  "image.png": {
+    "mtime": 1790645618.388445,
+    "seen": 1790646021.73807,
+    "ast_hash": "72dcd3320d921964d3a6b9faa011b447",
+    "semantic_hash": ""
+  },
+  "image0.png": {
+    "mtime": 1790645447.927655,
+    "seen": 1790646021.7380712,
+    "ast_hash": "4eebd87d1f1a02d5a3c0f8d67c708ad2",
+    "semantic_hash": ""
+  }
+}
