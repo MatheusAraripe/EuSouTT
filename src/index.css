@@ -7,6 +7,74 @@
   --color-paper: #f9f9f9;
   --font-serif: "Cactus Classical Serif", Georgia, serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  /* Escala de texto: só três tamanhos, todos múltiplos de 4 (entrelinha
+     também). 20 para títulos, 16 para conteúdo e links de navegação, 12 para
+     subtítulos e informações secundárias. */
+  --text-title: 20px;
+  --text-title--line-height: 24px;
+  --text-body: 16px;
+  --text-body--line-height: 20px;
+  --text-small: 12px;
+  --text-small--line-height: 16px;
+}
+
+/* Telas estreitas descem um degrau na mesma sequência de 4 (20→16, 16→12,
+   12→8). Os utilitários leem as variáveis, então basta trocá-las aqui. */
+@media (width < 40rem) {
+  :root {
+    --text-title: 16px;
+    --text-title--line-height: 20px;
+    --text-body: 12px;
+    --text-body--line-height: 16px;
+    --text-small: 8px;
+    --text-small--line-height: 12px;
+  }
+}
+
+/* --- Hierarquia --------------------------------------------------------------
+   Cinco papéis de texto (Figma, "hierarquia de textos"). A tag semântica e o
+   papel visual andam juntos, mas o papel também vale para o que não pode ser
+   heading — o título dentro de um <button> do menu, por exemplo.
+   h1  a frase sob a foto (único na página)   serifa, regular, 20
+   h2  títulos do menu e toda a raiz           serifa, regular, 20
+   h3  subtítulos (empresa, ano…)              mono, light, 12, caixa alta
+   h4  links de navegação abaixo dos títulos   mono, bold, 16
+   p   parágrafos                              mono, light, 16 */
+@utility type-h1 {
+  font-family: var(--font-serif);
+  font-size: var(--text-title);
+  line-height: var(--text-title--line-height);
+  font-weight: 400;
+}
+
+@utility type-h2 {
+  font-family: var(--font-serif);
+  font-size: var(--text-title);
+  line-height: var(--text-title--line-height);
+  font-weight: 400;
+}
+
+@utility type-h3 {
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  line-height: var(--text-small--line-height);
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+@utility type-h4 {
+  font-family: var(--font-mono);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  font-weight: 700;
+}
+
+@utility type-p {
+  font-family: var(--font-mono);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  font-weight: 300;
 }
 
 html {

@@ -253,7 +253,7 @@ export default function GlitchText({ children, className = "" }) {
                         style={{ borderColor: item.borderColor }}
                       />
                       <span
-                        className="pointer-events-none absolute -right-3 -bottom-4 font-mono text-[10px] tracking-tighter whitespace-nowrap"
+                        className="pointer-events-none absolute -right-3 -bottom-4 font-mono text-[8px] tracking-tighter whitespace-nowrap"
                         style={{ color: item.borderColor }}
                       >
                         {item.pixelText}

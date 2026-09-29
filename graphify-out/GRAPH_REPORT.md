@@ -1,16 +1,16 @@
-# Graph Report - alia  (2026-09-28)
+# Graph Report - EuSouTT  (2026-09-29)
 
 ## Corpus Check
-- 14 files · ~17,685 words
+- 14 files · ~18,386 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 117 nodes · 142 edges · 10 communities
+- 117 nodes · 141 edges · 10 communities
 - Extraction: 89% EXTRACTED · 9% INFERRED · 2% AMBIGUOUS · INFERRED: 13 edges (avg confidence: 0.86)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `f009c966`
+- Built from commit: `62e2f767`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -58,8 +58,8 @@
 ## Communities (10 total, 0 thin omitted)
 
 ### Community 0 - "Menu.jsx"
-Cohesion: 0.13
-Nodes (20): ArrowBack(), Spark(), bodySize(), boxStyle(), clamp(), Item(), Label(), Menu() (+12 more)
+Cohesion: 0.12
+Nodes (17): ArrowBack(), ArrowOut(), Spark(), boxStyle(), clamp(), Item(), Menu(), opens() (+9 more)
 
 ### Community 1 - "devDependencies"
 Cohesion: 0.09
@@ -99,7 +99,7 @@ Nodes (8): App(), AnchorDot(), clamp01(), easeOut(), FOLLOW, GROW, JELLY, RAYS
 
 ## Knowledge Gaps
 - **40 isolated node(s):** `name`, `private`, `version`, `type`, `dev` (+35 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 45 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 48 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
@@ -115,6 +115,6 @@ _Questions this graph is uniquely positioned to answer:_
 - **What connects `name`, `private`, `version` to the rest of the system?**
   _40 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Menu.jsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.12648221343873517 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.1225296442687747 - nodes in this community are weakly interconnected._
 - **Should `devDependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.08695652173913043 - nodes in this community are weakly interconnected._

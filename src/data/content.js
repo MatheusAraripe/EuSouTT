@@ -85,9 +85,17 @@ const projects = [
 // --- CONTATO ------------------------------------------------------------------
 // TODO: trocar "#" pelas URLs reais dos perfis.
 const socials = [
-  { id: "github", title: "GitHub", href: "#" },
-  { id: "linkedin", title: "LinkedIn", href: "#" },
-  { id: "behance", title: "Behance", href: "#" },
+  {
+    id: "linkedin",
+    title: "LinkedIn",
+    href: "https://www.linkedin.com/in/matheus-araripe/",
+  },
+  {
+    id: "behance",
+    title: "Behance",
+    href: "https://www.behance.net/matheusararipe",
+  },
+  { id: "github", title: "GitHub", href: "https://github.com/MatheusAraripe" },
 ];
 
 // --- RAIZ ---------------------------------------------------------------------
@@ -97,8 +105,11 @@ export const menu = [
     id: "sobre",
     title: "Sobre",
     body: [
-      "Sou um designer e desenvolvedor multidisciplinar focado em criar ecossistemas de marca fortes e funcionais. Minha atuação transita de forma fluida entre o design gráfico tradicional, a arquitetura de interfaces (UI/UX) e o desenvolvimento web.",
-      "Acredito que uma marca premium se constrói na intersecção entre uma identidade visual marcante e uma experiência digital impecável. Do conceito estratégico e design de embalagens à linha de código final, transformo visões criativas em produtos digitais sofisticados, responsivos e de alto impacto.",
+      "Sou um designer e desenvolvedor multidisciplinar guiado por uma forte visão de produto e pelo comportamento humano. Minha principal vantagem competitiva é a leitura da cultura e um faro apurado para o Zeitgeist. Entendo profundamente como a sociedade pensa e compreendo a dinâmica das tribos, o que me confere uma base estratégica sólida para conceber marcas, produtos e campanhas que realmente ressoam com o público.",
+      "Na minha forma de trabalhar, estruturo essa visão através de três arquétipos centrais:",
+      "Como Prototipador, utilizo essa sensibilidade social para mapear possibilidades e testar hipóteses. Antes de desenhar, busco o alinhamento cultural, criando conceitos e ecossistemas de marca fortes e funcionais que se conectem de verdade com as pessoas.",
+      "Como Construtor, traduzo esse entendimento humano em execução prática. Construo produtos digitais com pragmatismo, transformando a visão estratégica inicial em soluções reais, responsivas e de alto impacto.",
+      "Por fim, assumo a postura de Limpador para proteger a essência do produto. Removo ruídos, elimino complexidades e simplifico arquiteturas. Meu objetivo final é entregar soluções enxutas, garantindo que a comunicação da marca seja clara e que a experiência seja impecável, livre de atritos e perfeitamente alinhada à forma como o público consome e interage.",
     ],
   },
   { id: "trabalho", title: "Trabalho", children: works },

@@ -67,9 +67,14 @@ export default function App() {
     });
   };
 
+  // Com o menu fechado a tela inteira é o botão que o invoca: o cursor de
+  // clique reforça o convite da bolinha. Aberto, clicar fora só dispensa —
+  // volta o cursor padrão, e o pointer fica com os itens do menu.
   return (
-    <main className="grid h-dvh place-items-center overflow-hidden">
-      <h1 className="sr-only">Matheus Araripe, um designer que programa</h1>
+    <main
+      className={`grid h-dvh place-items-center overflow-hidden ${invocation ? "" : "cursor-pointer"}`}
+    >
+      <h1 className="type-h1 sr-only">Matheus Araripe, um designer que programa</h1>
 
       <AnchorDot
         anchor={invocation ? anchor : null}
@@ -82,7 +87,7 @@ export default function App() {
         ref={hint}
         type="button"
         onClick={openFromKeyboard}
-        className={`cursor-pointer font-serif text-xs text-black/70 transition-[opacity,visibility] duration-300 focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-accent pointer-fine:not-focus-visible:sr-only ${invocation ? "invisible opacity-0" : ""}`}
+        className={`cursor-pointer font-serif text-small text-black/70 transition-[opacity,visibility] duration-300 focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-accent pointer-fine:not-focus-visible:sr-only ${invocation ? "invisible opacity-0" : ""}`}
       >
         <span className="pointer-coarse:hidden">Clique em qualquer lugar</span>
         <span className="hidden pointer-coarse:inline">Toque em qualquer lugar</span>

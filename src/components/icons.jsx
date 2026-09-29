@@ -49,3 +49,24 @@ export function ArrowBack(props) {
     </svg>
   );
 }
+
+// Link para fora (projeto publicado). Mede 1em para seguir o tamanho do texto
+// da linha — e com ele a escala de 4 em telas estreitas.
+export function ArrowOut(props) {
+  return (
+    <svg
+      viewBox="0 0 12 12"
+      width="1em"
+      height="1em"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      {...props}
+    >
+      <path d="M3 9 9 3M4 3h5v5" />
+    </svg>
+  );
+}

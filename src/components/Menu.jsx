@@ -1,6 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import GlitchText from "./GlitchText";
-import { ArrowBack, Spark } from "./icons";
+import { ArrowBack, ArrowOut, Spark } from "./icons";
 import { menu } from "../data/content";
 
 // --- Geometria ----------------------------------------------------------------
@@ -18,7 +18,7 @@ const PAD = 4; // respiro interno para o anel de foco não ser cortado
 const GLITCH_X = 14;
 const GLITCH_Y = 18;
 const ARROW = 20; // largura da seta de voltar (icons.jsx)
-const MAX_W = 240;
+const MAX_W = 304; // ~300px do protótipo: a mono de 16px pede mais linha que a de 13
 const MAX_H = 360;
 const EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
 
@@ -75,57 +75,112 @@ function boxStyle({ x, y, right, up, width, height }, tight) {
 
 // --- Tipografia por nível -----------------------------------------------------
 // Um nó aberto vira cabeçalho com o mesmo estilo que tinha na lista — é isso
-// que deixa o título "viajar" até o topo sem mudar de cara.
+// que deixa o título "viajar" até o topo sem mudar de cara. Os papéis (h2,
+// h3, h4, p) são os da escala em index.css: a raiz e os títulos são h2; os
+// links de navegação abaixo deles, h4.
 const TITLE = {
-  1: "font-serif text-base leading-5 text-black/75",
-  2: "font-serif text-base leading-5 text-black/85",
-  3: "font-mono text-[11px] leading-[1.3] font-semibold text-black/65",
+  1: { tag: "h2", cls: "type-h2 text-black/75" },
+  2: { tag: "h2", cls: "type-h2 text-black/85" },
+  3: { tag: "h4", cls: "type-h4 text-black/65" },
 };
-const titleClass = (level) => TITLE[Math.min(level, 3)];
-const bodySize = (level) => (level >= 3 ? "text-[11px]" : "text-[13px]");
+const title = (level) => TITLE[Math.min(level, 3)];
 
 const opens = (node) => Boolean(node.children || node.body);
 
 const FOCUS =
   "rounded-xs focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-accent";
 
-function Label({ node, level, glitch = false }) {
+// Mesma curva das animações do menu (EASE), em CSS.
+const ARROW_MOTION =
+  "transition-transform duration-400 ease-[cubic-bezier(0.22,1,0.36,1)]";
+
+// Na lista o título mora dentro do <button>/<a>, que não aceita heading: lá
+// ele leva só o papel visual. Na trilha (`heading`) vira a tag de verdade.
+function Title({ node, level, glitch = false, heading = false }) {
+  const { tag, cls } = title(level);
+  const Tag = heading ? tag : "span";
+
+  return (
+    <Tag className={`block ${cls}`}>
+      {glitch ? <GlitchText>{node.title}</GlitchText> : node.title}
+    </Tag>
+  );
+}
+
+// Linha do subtítulo (empresa, ano…). Fica fora do botão do título — é ela
+// que carrega o link para o projeto, e um link não pode morar dentro de um
+// botão. O ícone acompanha o tamanho da linha (1em) e, por isso, a escala.
+function Meta({ node, heading = false }) {
+  if (!node.meta) return null;
+  const Tag = heading ? "h3" : "span";
+
+  return (
+    <span className="mt-1 flex items-center gap-2 text-black/65">
+      <Tag className="type-h3 whitespace-pre-wrap">{node.meta.join("  ")}</Tag>
+      {node.link && (
+        <a
+          href={node.link}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={`Ver o projeto ${node.title} (abre em nova aba)`}
+          // A área de toque cresce além do ícone sem mexer no layout.
+          className={`group type-h3 relative grid cursor-pointer place-items-center transition-colors after:absolute after:-inset-2 hover:text-black/85 ${FOCUS}`}
+        >
+          {/* No hover a seta "sai" pela diagonal e uma cópia entra pelo canto
+              oposto — o gesto de ir para fora, recortado no quadrado do
+              ícone. Só CSS; o reduced-motion global zera a transição. */}
+          <span className="relative block size-[1em] overflow-hidden">
+            <ArrowOut
+              className={`absolute inset-0 ${ARROW_MOTION} group-hover:translate-x-full group-hover:-translate-y-full group-focus-visible:translate-x-full group-focus-visible:-translate-y-full`}
+            />
+            <ArrowOut
+              className={`absolute inset-0 -translate-x-full translate-y-full ${ARROW_MOTION} group-hover:translate-0 group-focus-visible:translate-0`}
+            />
+          </span>
+        </a>
+      )}
+    </span>
+  );
+}
+
+function Label({ node, level, heading = false }) {
   return (
     <>
-      <span className={`block ${titleClass(level)}`}>
-        {glitch ? <GlitchText>{node.title}</GlitchText> : node.title}
-      </span>
-      {node.meta && (
-        <span className="mt-1 block font-mono text-[13px] leading-[1.3] font-light whitespace-pre-wrap text-black/65">
-          {node.meta.join("  ")}
-        </span>
-      )}
+      <Title node={node} level={level} heading={heading} />
+      <Meta node={node} heading={heading} />
     </>
   );
 }
 
-// Só o que é clicável ganha glitch e entra na ordem de foco.
+// Só o que é clicável ganha glitch e entra na ordem de foco. A área clicável
+// é só a do título: o subtítulo vem depois, fora do botão.
 function Item({ node, level, onOpen }) {
-  const cls = `block max-w-full cursor-pointer [text-align:inherit] ${FOCUS}`;
+  const cls = `max-w-full cursor-pointer [text-align:inherit] ${FOCUS}`;
 
   if (node.href) {
     const external = node.href.startsWith("http");
     return (
-      <a
-        href={node.href}
-        className={cls}
-        {...(external && { target: "_blank", rel: "noreferrer" })}
-      >
-        <Label node={node} level={level} glitch />
-      </a>
+      <>
+        <a
+          href={node.href}
+          className={cls}
+          {...(external && { target: "_blank", rel: "noreferrer" })}
+        >
+          <Title node={node} level={level} glitch />
+        </a>
+        <Meta node={node} />
+      </>
     );
   }
 
   if (opens(node)) {
     return (
-      <button type="button" className={cls} onClick={(e) => onOpen(node, e)}>
-        <Label node={node} level={level} glitch />
-      </button>
+      <>
+        <button type="button" className={cls} onClick={(e) => onOpen(node, e)}>
+          <Title node={node} level={level} glitch />
+        </button>
+        <Meta node={node} />
+      </>
     );
   }
 
@@ -141,12 +196,19 @@ function View({ path, right, onOpen }) {
   const trail = path.slice(1);
   const items = node ? (node.children ?? []) : menu;
   const body = node?.body ?? [];
+  // Título e subtítulo empilhados e encostados no lado da âncora — na trilha
+  // e na lista. A linha do subtítulo é flex e, sem isso, esticaria.
+  const stack = `flex max-w-full flex-col ${right ? "items-end" : "items-start"}`;
 
   return (
     <>
       {trail.map((n, i) => (
-        <div key={n.id} data-flip={n.id} className={i > 0 ? "mt-7" : ""}>
-          <Label node={n} level={i + 2} />
+        <div
+          key={n.id}
+          data-flip={n.id}
+          className={`${stack} ${i > 0 ? "mt-7" : ""}`}
+        >
+          <Label node={n} level={i + 2} heading />
         </div>
       ))}
 
@@ -154,7 +216,7 @@ function View({ path, right, onOpen }) {
         <p
           key={i}
           data-flip={`${node.id}/body/${i}`}
-          className={`${trail.length || i ? "mt-4" : ""} font-mono ${bodySize(level)} leading-[1.3] font-light text-black/65`}
+          className={`${trail.length || i ? "mt-4" : ""} type-p text-black/65`}
         >
           {text}
         </p>
@@ -162,10 +224,14 @@ function View({ path, right, onOpen }) {
 
       {items.length > 0 && (
         <ul
-          className={`flex flex-col ${level === 0 ? "gap-3.5" : "gap-4"} ${right ? "items-end" : "items-start"} ${trail.length || body.length ? "mt-4" : ""}`}
+          className={`flex flex-col ${level === 0 ? "gap-3" : "gap-4"} ${right ? "items-end" : "items-start"} ${trail.length || body.length ? "mt-4" : ""}`}
         >
           {items.map((n) => (
-            <li key={n.id} data-flip={n.id} className="max-w-full">
+            <li
+              key={n.id}
+              data-flip={n.id}
+              className={stack}
+            >
               <Item node={n} level={level + 1} onOpen={onOpen} />
             </li>
           ))}

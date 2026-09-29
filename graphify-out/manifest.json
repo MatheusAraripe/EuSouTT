@@ -18,27 +18,27 @@
     "semantic_hash": "c7426e1aec92af1a3f2a43f694f4cdb9"
   },
   "src/App.jsx": {
-    "mtime": 1790644047.1414337,
-    "seen": 1790644265.2494776,
-    "ast_hash": "81e638dc519e75d6138c221be5f54795",
+    "mtime": 1790707011.7678072,
+    "seen": 1790707018.9026754,
+    "ast_hash": "2f113f903c60fed3ae2a10ef95f76ea1",
     "semantic_hash": ""
   },
   "src/components/GlitchText.jsx": {
-    "mtime": 1790642963.493862,
-    "seen": 1790643240.8268313,
-    "ast_hash": "db18a53591b08fd1e6104ca5f999a20a",
+    "mtime": 1790706050.645499,
+    "seen": 1790706168.364536,
+    "ast_hash": "290ba22c3b74771e1d83a2f981c78454",
     "semantic_hash": ""
   },
   "src/components/icons.jsx": {
-    "mtime": 1790644039.25592,
-    "seen": 1790644265.2494838,
-    "ast_hash": "d232a7181e89aeae4aee1170f3abea16",
+    "mtime": 1790706050.6790528,
+    "seen": 1790706168.3645387,
+    "ast_hash": "7c0481379ee04dc5cfeed5690434b13e",
     "semantic_hash": ""
   },
   "src/data/content.js": {
-    "mtime": 1790642750.98831,
-    "seen": 1790643240.8268354,
-    "ast_hash": "404949ee7c5bb9b8cc61d96923384baa",
+    "mtime": 1790686736.7582402,
+    "seen": 1790703311.161867,
+    "ast_hash": "8e71eca4c4116b2355bf900bf3d4c4c7",
     "semantic_hash": ""
   },
   "src/main.jsx": {
@@ -60,9 +60,9 @@
     "semantic_hash": "a28dc4cb878325f3e9e5649f3e1469ac"
   },
   "index.html": {
-    "mtime": 1790642885.6151404,
-    "seen": 1790643240.8268414,
-    "ast_hash": "f7148945fb725a1c458f9db342982ddc",
+    "mtime": 1790703214.4426775,
+    "seen": 1790703311.1618733,
+    "ast_hash": "8e48bcdff796323c71fe1c75ff27243b",
     "semantic_hash": ""
   },
   "public/favicon.svg": {
@@ -78,15 +78,15 @@
     "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1790647387.7639327,
-    "seen": 1790647392.0290818,
-    "ast_hash": "7405ba935166f163d55fabe38470c6f9",
+    "mtime": 1790706167.3285687,
+    "seen": 1790706168.3645434,
+    "ast_hash": "a9f3f9585db98c8b015ffc2e740f3056",
     "semantic_hash": ""
   },
   "src/components/Menu.jsx": {
-    "mtime": 1790645961.8223734,
-    "seen": 1790646021.7380536,
-    "ast_hash": "867e6bec0be7d2cadb15e97122587465",
+    "mtime": 1790706772.0677068,
+    "seen": 1790706854.6568575,
+    "ast_hash": "78c332390bfda6b05b9c4abb62da47ed",
     "semantic_hash": ""
   },
   "src/components/AnchorDot.jsx": {

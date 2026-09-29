@@ -75,6 +75,18 @@
       "source_location": "L34"
     },
     {
+      "id": "src_components_icons_arrowout",
+      "label": "ArrowOut()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "Menu.jsx",
+      "file_type": "code",
+      "norm_label": "arrowout()",
+      "source_file": "src/components/icons.jsx",
+      "source_location": "L55"
+    },
+    {
       "id": "src_components_icons_spark",
       "label": "Spark()",
       "_callable": true,
@@ -85,18 +97,6 @@
       "norm_label": "spark()",
       "source_file": "src/components/icons.jsx",
       "source_location": "L8"
-    },
-    {
-      "id": "src_components_menu_bodysize",
-      "label": "bodySize()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "Menu.jsx",
-      "file_type": "code",
-      "norm_label": "bodysize()",
-      "source_file": "src/components/Menu.jsx",
-      "source_location": "L85"
     },
     {
       "id": "src_components_menu_boxstyle",
@@ -132,7 +132,7 @@
       "file_type": "code",
       "norm_label": "item()",
       "source_file": "src/components/Menu.jsx",
-      "source_location": "L108"
+      "source_location": "L157"
     },
     {
       "id": "src_components_menu_label",
@@ -144,7 +144,7 @@
       "file_type": "code",
       "norm_label": "label()",
       "source_file": "src/components/Menu.jsx",
-      "source_location": "L92"
+      "source_location": "L146"
     },
     {
       "id": "src_components_menu_menu",
@@ -156,7 +156,19 @@
       "file_type": "code",
       "norm_label": "menu()",
       "source_file": "src/components/Menu.jsx",
-      "source_location": "L182"
+      "source_location": "L248"
+    },
+    {
+      "id": "src_components_menu_meta",
+      "label": "Meta()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "Menu.jsx",
+      "file_type": "code",
+      "norm_label": "meta()",
+      "source_file": "src/components/Menu.jsx",
+      "source_location": "L113"
     },
     {
       "id": "src_components_menu_opens",
@@ -168,7 +180,7 @@
       "file_type": "code",
       "norm_label": "opens()",
       "source_file": "src/components/Menu.jsx",
-      "source_location": "L87"
+      "source_location": "L88"
     },
     {
       "id": "src_components_menu_place",
@@ -195,16 +207,16 @@
       "source_location": "L27"
     },
     {
-      "id": "src_components_menu_titleclass",
-      "label": "titleClass()",
+      "id": "src_components_menu_title",
+      "label": "TITLE",
       "_callable": true,
       "_origin": "ast",
       "community": 0,
       "community_name": "Menu.jsx",
       "file_type": "code",
-      "norm_label": "titleclass()",
+      "norm_label": "title",
       "source_file": "src/components/Menu.jsx",
-      "source_location": "L84"
+      "source_location": "L81"
     },
     {
       "id": "src_components_menu_view",
@@ -216,7 +228,7 @@
       "file_type": "code",
       "norm_label": "view()",
       "source_file": "src/components/Menu.jsx",
-      "source_location": "L138"
+      "source_location": "L193"
     },
     {
       "id": "src_app_app",
@@ -361,17 +373,6 @@
       "source_location": "L1"
     },
     {
-      "id": "src_components_menu_title",
-      "label": "TITLE",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "Menu.jsx",
-      "file_type": "code",
-      "norm_label": "title",
-      "source_file": "src/components/Menu.jsx",
-      "source_location": "L79"
-    },
-    {
       "id": "src_data_content",
       "label": "content.js",
       "_origin": "ast",
@@ -391,7 +392,7 @@
       "file_type": "code",
       "norm_label": "menu",
       "source_file": "src/data/content.js",
-      "source_location": "L95"
+      "source_location": "L103"
     },
     {
       "id": "src_data_content_projects",
@@ -747,7 +748,7 @@
       "node_kind": "heading",
       "norm_label": "convencoes do projeto",
       "source_file": "CLAUDE.md",
-      "source_location": "L105"
+      "source_location": "L113"
     },
     {
       "id": "claude_eusoutt_portf\u00f3lio_de_matheus_araripe",
@@ -783,7 +784,7 @@
       "node_kind": "heading",
       "norm_label": "graphify",
       "source_file": "CLAUDE.md",
-      "source_location": "L169"
+      "source_location": "L185"
     },
     {
       "id": "claude_mantendo_este_arquivo_vivo",
@@ -795,7 +796,7 @@
       "node_kind": "heading",
       "norm_label": "mantendo este arquivo vivo",
       "source_file": "CLAUDE.md",
-      "source_location": "L156"
+      "source_location": "L172"
     },
     {
       "id": "claude_o_menu_regras_do_prot\u00f3tipo_em_figma",
@@ -819,7 +820,7 @@
       "node_kind": "heading",
       "norm_label": "pendencias conhecidas",
       "source_file": "CLAUDE.md",
-      "source_location": "L138"
+      "source_location": "L157"
     },
     {
       "id": "claude_src_data_content_js_\u00e9_o_ponto_de_entrada_para_conte\u00fado",
@@ -1563,19 +1564,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/Menu.jsx",
-      "source_location": "L124",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_menu_label",
-      "target": "src_components_menu_titleclass",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/components/Menu.jsx",
-      "source_location": "L95",
+      "source_location": "L176",
       "weight": 1.0
     },
     {
@@ -1587,7 +1576,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/Menu.jsx",
-      "source_location": "L188",
+      "source_location": "L254",
       "weight": 1.0
     },
     {
@@ -1599,7 +1588,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/Menu.jsx",
-      "source_location": "L251",
+      "source_location": "L317",
       "weight": 1.0
     },
     {
@@ -1611,7 +1600,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/Menu.jsx",
-      "source_location": "L334",
+      "source_location": "L400",
       "weight": 1.0
     },
     {
@@ -1624,18 +1613,6 @@
       "context": "call",
       "source_file": "src/components/Menu.jsx",
       "source_location": "L33",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_menu_view",
-      "target": "src_components_menu_bodysize",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/components/Menu.jsx",
-      "source_location": "L157",
       "weight": 1.0
     },
     {
@@ -1844,6 +1821,18 @@
     },
     {
       "source": "src_components_menu",
+      "target": "src_components_icons_arrowout",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/Menu.jsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_menu",
       "target": "src_components_icons_spark",
       "relation": "imports",
       "_origin": "ast",
@@ -2002,7 +1991,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CLAUDE.md",
-      "source_location": "L105",
+      "source_location": "L113",
       "weight": 1.0
     },
     {
@@ -2024,7 +2013,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CLAUDE.md",
-      "source_location": "L138",
+      "source_location": "L157",
       "weight": 1.0
     },
     {
@@ -2035,7 +2024,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CLAUDE.md",
-      "source_location": "L156",
+      "source_location": "L172",
       "weight": 1.0
     },
     {
@@ -2046,7 +2035,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CLAUDE.md",
-      "source_location": "L169",
+      "source_location": "L185",
       "weight": 1.0
     },
     {
@@ -2513,6 +2502,17 @@
     },
     {
       "source": "src_components_icons",
+      "target": "src_components_icons_arrowout",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/icons.jsx",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_icons",
       "target": "src_components_icons_spark",
       "relation": "contains",
       "_origin": "ast",
@@ -2524,13 +2524,35 @@
     },
     {
       "source": "src_components_menu",
+      "target": "src_components_menu_meta",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/Menu.jsx",
+      "source_location": "L113",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_menu",
+      "target": "src_components_menu_label",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/Menu.jsx",
+      "source_location": "L146",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_menu",
       "target": "src_components_menu_item",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/Menu.jsx",
-      "source_location": "L108",
+      "source_location": "L157",
       "weight": 1.0
     },
     {
@@ -2541,7 +2563,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/Menu.jsx",
-      "source_location": "L138",
+      "source_location": "L193",
       "weight": 1.0
     },
     {
@@ -2552,7 +2574,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/Menu.jsx",
-      "source_location": "L182",
+      "source_location": "L248",
       "weight": 1.0
     },
     {
@@ -2601,57 +2623,35 @@
     },
     {
       "source": "src_components_menu",
-      "target": "src_components_menu_title",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/Menu.jsx",
-      "source_location": "L79",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_menu",
-      "target": "src_components_menu_titleclass",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/Menu.jsx",
-      "source_location": "L84",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_menu",
-      "target": "src_components_menu_bodysize",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/Menu.jsx",
-      "source_location": "L85",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_menu",
       "target": "src_components_menu_opens",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/Menu.jsx",
-      "source_location": "L87",
+      "source_location": "L88",
       "weight": 1.0
     },
     {
       "source": "src_components_menu",
-      "target": "src_components_menu_label",
+      "target": "src_components_menu_title",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/Menu.jsx",
-      "source_location": "L92",
+      "source_location": "L99",
+      "weight": 1.0
+    },
+    {
+      "source": "src_data_content",
+      "target": "src_data_content_menu",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/data/content.js",
+      "source_location": "L103",
       "weight": 1.0
     },
     {
@@ -2685,17 +2685,6 @@
       "confidence_score": 1.0,
       "source_file": "src/data/content.js",
       "source_location": "L87",
-      "weight": 1.0
-    },
-    {
-      "source": "src_data_content",
-      "target": "src_data_content_menu",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/data/content.js",
-      "source_location": "L95",
       "weight": 1.0
     },
     {
@@ -3143,5 +3132,5 @@
       "source_file": "index.html"
     }
   ],
-  "built_at_commit": "f009c966a7bcb9facf12660285b9f79479d2620c"
+  "built_at_commit": "62e2f7675d5f44b655fea790039347252aa3ff2a"
 }

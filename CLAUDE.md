@@ -21,6 +21,14 @@ npm run lint      # ESLint flat config (ignora dist/)
 Não há testes configurados. Não há TypeScript — JS/JSX puro.
 `.claude/launch.json` já define a config de launch (`npm run dev`, porta 5173).
 
+### Deploy
+
+GitHub Pages via Actions (`.github/workflows/deploy.yml`): cada push na `main`
+roda `npm run build` e publica `dist/`. Em Settings → Pages, Source precisa
+ser **GitHub Actions** — servir a raiz do repositório entrega o `index.html`
+de desenvolvimento (`/src/main.jsx`) e a tela fica branca. `base: "./"` no
+`vite.config.js` porque o site mora em `/EuSouTT/`, não na raiz do domínio.
+
 ### Git
 
 - Fora do repositório (`.gitignore`): `Figma/` — o `.fig` traz material de
@@ -34,14 +42,14 @@ Não há testes configurados. Não há TypeScript — JS/JSX puro.
 ## Arquitetura
 
 ```
-index.html              shell + SEO/OG + Google Fonts (Cactus Classical Serif, IBM Plex Mono 300/600)
+index.html              shell + SEO/OG + Google Fonts (Cactus Classical Serif, IBM Plex Mono 300/700)
 src/main.jsx            createRoot + StrictMode
 src/App.jsx             a tela: invocação do menu, bolinha (desktop), aviso (toque/teclado)
 src/components/AnchorDot.jsx  bolinha em canvas que segue o mouse e vira a âncora
 src/components/Menu.jsx o menu: geometria, navegação por níveis, FLIP, foco
 src/components/GlitchText.jsx  glitch por caractere no hover/touch
 src/components/icons.jsx       Spark (marca do clique) e ArrowBack
-src/index.css           tokens (@theme), barra de rolagem do menu, reduced-motion
+src/index.css           tokens (@theme) + escala tipográfica, barra de rolagem do menu, reduced-motion
 src/data/content.js     FONTE ÚNICA DE CONTEÚDO — a árvore `menu`
 src/assets/             CV (PDF) e foto `tt.jpg` — ainda não usados pela tela
 Figma/                  protótipo (.fig) + prints das regras do menu (local, fora do git)
@@ -81,7 +89,9 @@ Não há roteador, estado global, backend nem fetch. Tudo é estático e client-
   por molas (seguimento + deformação na direção da velocidade = ar líquido);
   com o menu aberto pousa na âncora que o `Menu` informa via `onAnchor`, e
   encolhe abaixo da raiz (onde entra a seta). Após 2s sem clique, repete um
-  convite mínimo: o disco afunda e os raios da Spark saem dele. No toque não
+  convite mínimo: o disco afunda e os raios da Spark saem dele. Com o menu
+  fechado a `main` tem `cursor-pointer` (a tela toda invoca); aberto, volta o
+  cursor padrão. No toque não
   existe — lá fica o aviso "Toque em qualquer lugar"; no desktop o aviso é
   `sr-only` até receber foco (entrada do teclado).
 - **Âncora**: na raiz mostra a `Spark` (espelhada para os raios apontarem para
@@ -101,6 +111,14 @@ href? }`. Nó com `children`/`body` abre um nível; com `href` é link; sem nada
 só texto (sem glitch, sem foco). **Ao adicionar/editar conteúdo, edite esse
 arquivo — não os componentes.** `id` precisa ser único na árvore inteira (é a
 chave do FLIP). A tipografia sai do nível (`TITLE` em `Menu.jsx`), não do nó.
+Nó com `meta` e `link` ganha o ícone `ArrowOut` ao lado do subtítulo, um link
+para o projeto (nova aba).
+
+**A área clicável é só o título.** O `<button>`/`<a>` do item envolve apenas o
+`Title`; o `Meta` (subtítulo + ícone) vem depois, como irmão — link dentro de
+botão é HTML inválido, e o subtítulo não deve abrir o nó. Título e meta
+empilham em coluna alinhada ao lado da âncora (`stack` em `View`), na lista e
+na trilha.
 
 ## Convenções do projeto
 
@@ -129,6 +147,17 @@ chave do FLIP). A tipografia sai do nível (`TITLE` em `Menu.jsx`), não do nó.
   `GlitchText`, `AnchorDot` — gruda no mouse e mostra os raios parados) e em CSS (`index.css`). Todo efeito novo precisa desse guarda.
 - **Um único acento de cor.** `--color-accent` (violeta da marca), hoje só no
   foco. Fora dele, preto em opacidades (.85 títulos, .75 raiz, .65 meta/texto).
+- **Escala tipográfica de múltiplos de 4** (`Figma/hierarquia de textos *.png`,
+  `Tamanho de texto.png`). Só três tamanhos, tokens `--text-title` (20/24),
+  `--text-body` (16/20) e `--text-small` (12/16) no `@theme`; abaixo de 640px
+  todos descem um degrau (16, 12, 8) trocando as variáveis — nunca crie um
+  tamanho fora da escala nem `text-[…px]`. Os papéis são utilitários em
+  `index.css`: `type-h1` (a frase sob a foto, único h1) e `type-h2` (raiz e
+  títulos) em serifa regular; `type-h3` (subtítulos/meta) mono light caixa
+  alta; `type-h4` (links de navegação abaixo dos títulos) mono bold;
+  `type-p` mono light. Dentro de `<button>`/`<a>` o papel é só visual (heading
+  não pode morar ali); na trilha do menu vira a tag de verdade (`h2`/`h4` +
+  `h3` no meta). Plex Mono carrega 300 e 700.
 - **Zero dependências de UI.** SVG inline; sem lib de animação, ícones ou
   componentes. Só React, React DOM e Tailwind. Fontes via Google Fonts.
 - **Comentários em pt-BR** explicando o *porquê*, no topo do bloco. Siga o tom.
@@ -146,10 +175,7 @@ chave do FLIP). A tipografia sai do nível (`TITLE` em `Menu.jsx`), não do nó.
 - Textos de Nova Tendência (Brasilseg) e Fiocruz (ORCA) foram casados com os
   itens a partir do CV do Figma (`A4 - 3`) — confirmar. `meta` de LAB_TT
   ("Experimental") também é chute.
-- `link` dos trabalhos está nos dados mas nenhuma tela o exibe ainda.
 - `socials` (Contato) ainda aponta para `"#"`.
-- A pasta local ainda se chama `alia`; renomear para `EuSouTT` com o Claude
-  Code e o VS Code fechados (o Windows trava a pasta em uso).
 - `README.md` ainda é o boilerplate do template Vite.
 - `public/favicon.svg` carrega peso morto do export do Figma.
 
