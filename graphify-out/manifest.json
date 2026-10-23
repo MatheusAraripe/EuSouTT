@@ -18,15 +18,9 @@
     "semantic_hash": "c7426e1aec92af1a3f2a43f694f4cdb9"
   },
   "src/App.jsx": {
-    "mtime": 1790716120.7767437,
-    "seen": 1790716125.2034857,
-    "ast_hash": "db02ef1a04d48da74967d049cc1d488e",
-    "semantic_hash": ""
-  },
-  "src/components/GlitchText.jsx": {
-    "mtime": 1790708152.5991497,
-    "seen": 1790709879.3696635,
-    "ast_hash": "77c843aa65b04cd017d043bf4408a1ea",
+    "mtime": 1792781299.958907,
+    "seen": 1792781477.971658,
+    "ast_hash": "ef9939c3a1a8db7797e0cd5c18927664",
     "semantic_hash": ""
   },
   "src/components/icons.jsx": {
@@ -36,9 +30,9 @@
     "semantic_hash": ""
   },
   "src/data/content.js": {
-    "mtime": 1790714431.229053,
-    "seen": 1790714484.7538602,
-    "ast_hash": "02daffba016c6fd17417f2ae8e3b6efa",
+    "mtime": 1792782974.7978988,
+    "seen": 1792783327.0685413,
+    "ast_hash": "45f935ef8277a3d3b0b6399dbf241ad7",
     "semantic_hash": ""
   },
   "src/main.jsx": {
@@ -60,9 +54,9 @@
     "semantic_hash": "a28dc4cb878325f3e9e5649f3e1469ac"
   },
   "index.html": {
-    "mtime": 1790715901.6575248,
-    "seen": 1790715946.1187298,
-    "ast_hash": "8839dd64a3ddf7b22a86b8a8589b96ef",
+    "mtime": 1790716301.6033683,
+    "seen": 1792763980.8104022,
+    "ast_hash": "10dc030a9996109d43444d8bdf3d6110",
     "semantic_hash": ""
   },
   "public/favicon.svg": {
@@ -78,27 +72,21 @@
     "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1790715901.6575248,
-    "seen": 1790715946.118727,
-    "ast_hash": "8e7080b501bf18361c64f2daa8285370",
+    "mtime": 1792783325.6766589,
+    "seen": 1792783327.0685482,
+    "ast_hash": "2e74873de0e7b1028c7cbbf373bad23a",
     "semantic_hash": ""
   },
   "src/components/Menu.jsx": {
-    "mtime": 1790713246.123714,
-    "seen": 1790713287.1299818,
-    "ast_hash": "15156f80b229b33723d4ba457589d8a3",
+    "mtime": 1792782725.2867527,
+    "seen": 1792782971.2560153,
+    "ast_hash": "9b0ab86943bea0b9ca5e9ab8c7e1091e",
     "semantic_hash": ""
   },
   "src/components/AnchorDot.jsx": {
-    "mtime": 1790714417.8752058,
-    "seen": 1790714484.7538543,
-    "ast_hash": "6702fde6dd38f5f179f6371f52cea806",
-    "semantic_hash": ""
-  },
-  "src/assets/CV/Matheus_Araripe_CV.pdf": {
-    "mtime": 1790614054.7898796,
-    "seen": 1790646021.738065,
-    "ast_hash": "9e0c6084f8538510aff71210cb8f8ef1",
+    "mtime": 1792767884.2485368,
+    "seen": 1792768035.778646,
+    "ast_hash": "2b806e81c736cf7a293faf60f198e57b",
     "semantic_hash": ""
   },
   "src/assets/image/tt.jpg": {
@@ -123,6 +111,114 @@
     "mtime": 1790713746.7950485,
     "seen": 1790713778.3756335,
     "ast_hash": "9b4c78a617c48e0df1a53bec50c1e090",
+    "semantic_hash": ""
+  },
+  "src/assets/CV/Matheus_Araripe_FlowCV_Resume_2026-10-23.pdf": {
+    "mtime": 1792762211.2476802,
+    "seen": 1792763980.8104036,
+    "ast_hash": "3959a52cc5daa9d353d0e15ad80fe50c",
+    "semantic_hash": ""
+  },
+  "src/components/Showcase.jsx": {
+    "mtime": 1792782820.2389019,
+    "seen": 1792782971.256018,
+    "ast_hash": "88639f058a414e6e341524b9c76f7341",
+    "semantic_hash": ""
+  },
+  "src/data/slides.js": {
+    "mtime": 1792767895.510036,
+    "seen": 1792768035.7786539,
+    "ast_hash": "be4be0c72b9fb08ffde0eb1ce52447a1",
+    "semantic_hash": ""
+  },
+  "src/assets/media/inexplicavel/bar.webp": {
+    "mtime": 1792767745.3582013,
+    "seen": 1792768035.7786863,
+    "ast_hash": "e79f455675c0c6aea6f703f1e41c96f2",
+    "semantic_hash": ""
+  },
+  "src/assets/media/inexplicavel/cozinha.webp": {
+    "mtime": 1792767744.9581125,
+    "seen": 1792768035.7786875,
+    "ast_hash": "34db427a574d4a87b8767919073b5a91",
+    "semantic_hash": ""
+  },
+  "src/assets/media/inexplicavel/fachada.webp": {
+    "mtime": 1792767744.6575234,
+    "seen": 1792768035.7786882,
+    "ast_hash": "4271c619ad63eb5d4b654900408b2326",
+    "semantic_hash": ""
+  },
+  "src/assets/media/inexplicavel/garrafas.webp": {
+    "mtime": 1792767744.3810263,
+    "seen": 1792768035.7786894,
+    "ast_hash": "3b32b83a36ac82877a57a97d566a8db5",
+    "semantic_hash": ""
+  },
+  "src/assets/media/inexplicavel/prato.webp": {
+    "mtime": 1792767745.1640952,
+    "seen": 1792768035.77869,
+    "ast_hash": "ef9c8fa73c50cae34f0c1b58ba88e72e",
+    "semantic_hash": ""
+  },
+  "src/assets/media/inexplicavel/quinta-laranja.webp": {
+    "mtime": 1792767744.8296185,
+    "seen": 1792768035.7786915,
+    "ast_hash": "11ba62c773c542423903d4e286b40f31",
+    "semantic_hash": ""
+  },
+  "src/assets/media/inexplicavel/sacola.webp": {
+    "mtime": 1792767744.5404077,
+    "seen": 1792768035.7786927,
+    "ast_hash": "42d5159a963d272235af4d72e730aa83",
+    "semantic_hash": ""
+  },
+  "src/assets/media/maria-view/poster.webp": {
+    "mtime": 1792767747.309002,
+    "seen": 1792768035.7786934,
+    "ast_hash": "57e0aa45f562e99baf9b2490da074400",
+    "semantic_hash": ""
+  },
+  "src/assets/media/maria-view/motion.mp4": {
+    "mtime": 1792767747.2226596,
+    "seen": 1792768035.7786942,
+    "ast_hash": "5a2da3b4e5ba361d7746c992b826aa81",
+    "semantic_hash": ""
+  },
+  "src/assets/media/ulisses-xavier/poster.webp": {
+    "mtime": 1792768286.0830038,
+    "seen": 1792768366.958077,
+    "ast_hash": "e8aee2cfdc528ca3b47226acc7afb782",
+    "semantic_hash": ""
+  },
+  "src/assets/media/ulisses-xavier/motion.mp4": {
+    "mtime": 1792768285.9996667,
+    "seen": 1792768366.9580796,
+    "ast_hash": "8cef01de356ac23058f48081bb7e6fb5",
+    "semantic_hash": ""
+  },
+  "src/assets/media/inexplicavel/poster.webp": {
+    "mtime": 1792780236.318802,
+    "seen": 1792780291.866813,
+    "ast_hash": "044b6887e5ccf0fb4e15978ce6404a99",
+    "semantic_hash": ""
+  },
+  "src/assets/media/maria-eulalia/poster.webp": {
+    "mtime": 1792780238.192904,
+    "seen": 1792780291.866818,
+    "ast_hash": "e3f929e9d4abe906b6c64a3cc0acd86e",
+    "semantic_hash": ""
+  },
+  "src/assets/media/inexplicavel/motion.mp4": {
+    "mtime": 1792780236.2205272,
+    "seen": 1792780291.8668215,
+    "ast_hash": "a5fb71131fe35228c10d75bded6e4ae2",
+    "semantic_hash": ""
+  },
+  "src/assets/media/maria-eulalia/motion.mp4": {
+    "mtime": 1792780238.0987375,
+    "seen": 1792780291.8668225,
+    "ast_hash": "681c0af803e50a25a0393c946dd60d8e",
     "semantic_hash": ""
   }
 }

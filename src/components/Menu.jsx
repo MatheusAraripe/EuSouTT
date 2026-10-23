@@ -1,5 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import GlitchText from "./GlitchText";
+import { Fragment, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { ArrowBack, ArrowOut, Spark } from "./icons";
 import { menu } from "../data/content";
 
@@ -11,12 +10,11 @@ import { menu } from "../data/content";
 const MARGIN = 16; // distância mínima entre o menu e a borda da tela
 const GAP = 6; // da âncora até o texto: a borda do disco da marca
 const PAD = 4; // respiro interno para o anel de foco não ser cortado
-// Folga para o rótulo "Δx=…px" do GlitchText, que pendura 16px abaixo e 12px
-// à direita da letra. Fica dentro da caixa: fora dela o rótulo é cortado e
-// ainda estica a área de rolagem (barra aparecendo com 4 itens). No setor de
-// baixo é ela que afasta o texto da âncora.
-const GLITCH_X = 14;
-const GLITCH_Y = 18;
+// Respiro no pé da caixa. No setor de baixo é ele que afasta o texto da
+// âncora; no de cima, o fim da rolagem não cola na borda.
+const FOOT = 18;
+// No lado R, quando a tela rola, o recuo entre o texto e a barra.
+const BAR_GAP = 14;
 const ARROW = 20; // largura da seta de voltar (icons.jsx)
 const MAX_W = 304; // ~300px do protótipo: a mono de 16px pede mais linha que a de 13
 // Cabe Sobre inteiro (intro + arquétipos) quando há espaço; em telas baixas
@@ -38,7 +36,7 @@ function place(clientX, clientY) {
   const up = y > vh / 2;
   const width = Math.min(
     MAX_W,
-    (right ? x : vw - x - GLITCH_X) - GAP - MARGIN,
+    (right ? x : vw - x) - GAP - MARGIN,
   );
   const height = Math.min(MAX_H, (up ? y : vh - y) - GAP - MARGIN);
 
@@ -48,13 +46,13 @@ function place(clientX, clientY) {
 // A caixa é fixa durante toda a vida do menu: navegar troca o conteúdo, nunca
 // a âncora. O que não couber rola dentro dela.
 //
-// A barra de rolagem conta como borda do menu. No lado R ela ficaria depois da
-// folga do glitch, longe do texto, e a seta de voltar esbarraria nela; por
-// isso, quando a tela rola (`tight`), a caixa termina na borda do texto — a
-// barra ocupa exatamente a linha onde o texto terminaria e o texto recua.
+// A barra de rolagem conta como borda do menu. No lado R ela ficaria depois do
+// respiro, longe do texto, e a seta de voltar esbarraria nela; por isso,
+// quando a tela rola (`tight`), a caixa termina na borda do texto — a barra
+// ocupa exatamente a linha onde o texto terminaria e o texto recua.
 function boxStyle({ x, y, right, up, width, height }, tight) {
   const top = (up ? y - GAP - height : y + GAP) - PAD;
-  const bottom = PAD + GLITCH_Y;
+  const bottom = PAD + FOOT;
 
   if (right && tight) {
     return {
@@ -62,16 +60,16 @@ function boxStyle({ x, y, right, up, width, height }, tight) {
       top,
       width: width + PAD,
       height: height + PAD * 2,
-      padding: `${PAD}px ${GLITCH_X}px ${bottom}px ${PAD}px`,
+      padding: `${PAD}px ${BAR_GAP}px ${bottom}px ${PAD}px`,
     };
   }
 
   return {
     left: (right ? x - GAP - width : x + GAP) - PAD,
     top,
-    width: width + GLITCH_X + PAD * 2,
+    width: width + PAD * 2,
     height: height + PAD * 2,
-    padding: `${PAD}px ${PAD + GLITCH_X}px ${bottom}px ${PAD}px`,
+    padding: `${PAD}px ${PAD}px ${bottom}px ${PAD}px`,
   };
 }
 
@@ -87,7 +85,8 @@ const TITLE = {
 };
 const title = (level) => TITLE[Math.min(level, 3)];
 
-const opens = (node) => Boolean(node.children || node.body);
+const opens = (node) =>
+  Boolean(node.children || node.body || node.lede || node.points);
 
 const FOCUS =
   "rounded-xs focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-accent";
@@ -96,15 +95,28 @@ const FOCUS =
 const ARROW_MOTION =
   "transition-transform duration-400 ease-[cubic-bezier(0.22,1,0.36,1)]";
 
+// O risco no meio da palavra: no hover (ou foco de teclado) de um item
+// clicável ele corre da esquerda para a direita; no título de um nó aberto
+// (`on`) fica — é o "você está aqui". Um fundo de 1px e não
+// `text-decoration`: o fundo anima, e com `box-decoration-break: clone`
+// cada linha de um título que quebra ganha o seu risco. O reduced-motion
+// global zera a transição.
+const STRIKE =
+  "bg-[linear-gradient(currentColor,currentColor)] bg-no-repeat bg-position-[0_55%] [box-decoration-break:clone] transition-[background-size] duration-400 ease-[cubic-bezier(0.22,1,0.36,1)]";
+const STRUCK = {
+  hover: `${STRIKE} bg-size-[0%_1px] group-hover:bg-size-[100%_1px] group-focus-visible:bg-size-[100%_1px]`,
+  on: `${STRIKE} bg-size-[100%_1px]`,
+};
+
 // Na lista o título mora dentro do <button>/<a>, que não aceita heading: lá
 // ele leva só o papel visual. Na trilha (`heading`) vira a tag de verdade.
-function Title({ node, level, glitch = false, heading = false }) {
+function Title({ node, level, strike, heading = false }) {
   const { tag, cls } = title(level);
   const Tag = heading ? tag : "span";
 
   return (
     <Tag className={`block ${cls}`}>
-      {glitch ? <GlitchText>{node.title}</GlitchText> : node.title}
+      {strike ? <span className={STRUCK[strike]}>{node.title}</span> : node.title}
     </Tag>
   );
 }
@@ -117,8 +129,17 @@ function Meta({ node, heading = false }) {
   const Tag = heading ? "h3" : "span";
 
   return (
-    <span className="mt-1 flex items-center gap-2 text-black/65">
-      <Tag className="type-h3 whitespace-pre-wrap">{node.meta.join("  ")}</Tag>
+    <span className="mt-2xs flex items-center gap-xs text-black/65">
+      {/* Cada parte (empresa, período) quebra inteira: no celular a linha
+          não cabe, e "01/26 –" sozinho no fim dela não se lê. */}
+      <Tag className="type-h3 whitespace-pre-wrap">
+        {node.meta.map((part, i) => (
+          <Fragment key={i}>
+            {i > 0 && "  "}
+            <span className="whitespace-nowrap">{part}</span>
+          </Fragment>
+        ))}
+      </Tag>
       {node.link && (
         <a
           href={node.link}
@@ -145,19 +166,19 @@ function Meta({ node, heading = false }) {
   );
 }
 
-function Label({ node, level, heading = false }) {
+function Label({ node, level, strike, heading = false }) {
   return (
     <>
-      <Title node={node} level={level} heading={heading} />
+      <Title node={node} level={level} strike={strike} heading={heading} />
       <Meta node={node} heading={heading} />
     </>
   );
 }
 
-// Só o que é clicável ganha glitch e entra na ordem de foco. A área clicável
+// Só o que é clicável ganha o risco no hover e entra na ordem de foco. A área clicável
 // é só a do título: o subtítulo vem depois, fora do botão.
 function Item({ node, level, onOpen }) {
-  const cls = `max-w-full cursor-pointer [text-align:inherit] ${FOCUS}`;
+  const cls = `group max-w-full cursor-pointer [text-align:inherit] ${FOCUS}`;
   // A raiz é só a lista de seções: o subtítulo de uma seção (o "TT" de Sobre)
   // aparece quando ela vira cabeçalho, não no primeiro menu.
   const meta = level > 1 && <Meta node={node} />;
@@ -171,7 +192,7 @@ function Item({ node, level, onOpen }) {
           className={cls}
           {...(external && { target: "_blank", rel: "noreferrer" })}
         >
-          <Title node={node} level={level} glitch />
+          <Title node={node} level={level} strike="hover" />
         </a>
         {meta}
       </>
@@ -182,7 +203,7 @@ function Item({ node, level, onOpen }) {
     return (
       <>
         <button type="button" className={cls} onClick={(e) => onOpen(node, e)}>
-          <Title node={node} level={level} glitch />
+          <Title node={node} level={level} strike="hover" />
         </button>
         {meta}
       </>
@@ -208,6 +229,7 @@ function View({ path, right, onOpen }) {
     .filter((_, i) => i > 0 || titled);
   const items = node ? (node.children ?? []) : menu;
   const body = node?.body ?? [];
+  const points = node?.points ?? [];
   // Título e subtítulo empilhados e encostados no lado da âncora — na trilha
   // e na lista. A linha do subtítulo é flex e, sem isso, esticaria.
   const stack = `flex max-w-full flex-col ${right ? "items-end" : "items-start"}`;
@@ -218,9 +240,9 @@ function View({ path, right, onOpen }) {
         <div
           key={n.id}
           data-flip={n.id}
-          className={`${stack} ${i > 0 ? "mt-7" : ""}`}
+          className={`${stack} ${i > 0 ? "mt-lg" : ""}`}
         >
-          <Label node={n} level={level} heading />
+          <Label node={n} level={level} strike="on" heading />
         </div>
       ))}
 
@@ -230,15 +252,67 @@ function View({ path, right, onOpen }) {
         <p
           key={i}
           data-flip={`${node.id}/body/${i}`}
-          className={`${trail.length || i ? "mt-4" : ""} type-p self-stretch text-justify text-black/65`}
+          className={`${trail.length || i ? "mt-md" : ""} type-p self-stretch text-justify hyphens-auto text-black/65`}
         >
           {text}
         </p>
       ))}
 
+      {/* Um trabalho se lê em três camadas, separadas por fonte, peso e
+          espaço — sem marcadores: a abertura em serifa, a manchete de cada
+          tópico em medium e o detalhe em light. Texto, não título: é um
+          bloco justificado na largura toda, como os parágrafos de Sobre —
+          as linhas soltas, metade no lado da âncora e metade fora, não
+          formavam bloco nenhum. A coluna é estreita e a mono é larga: sem
+          hifenizar (pelo `lang="pt-BR"`), a justificação abre buracos. */}
+      {(node?.lede || points.length > 0) && (
+        <div
+          className={`${body.length ? "mt-md" : trail.length ? (node.lede ? "mt-sm" : "mt-md") : ""} flex flex-col self-stretch text-justify hyphens-auto`}
+        >
+          {node.lede && (
+            <p
+              data-flip={`${node.id}/lede`}
+              className="type-lede text-black/85"
+            >
+              {node.lede}
+            </p>
+          )}
+
+          {points.length > 0 && (
+            // `list-none` apaga a semântica de lista no Safari; o role devolve.
+            <ul
+              role="list"
+              className={`${node.lede ? "mt-lg" : ""} flex flex-col gap-md`}
+            >
+              {points.map((point, i) => {
+                // Tópico é "manchete" ou ["manchete", "detalhe"].
+                const [lead, detail] = [].concat(point);
+                return (
+                  <li
+                    key={i}
+                    data-flip={`${node.id}/points/${i}`}
+                    className="flex flex-col"
+                  >
+                    <span className="type-h4 text-black/85">
+                      {lead}
+                      {detail && <span className="sr-only">: </span>}
+                    </span>
+                    {detail && (
+                      <span className="type-p mt-2xs text-black/65">
+                        {detail}
+                      </span>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+        </div>
+      )}
+
       {items.length > 0 && (
         <ul
-          className={`flex flex-col ${path.length ? "gap-4" : "gap-3"} ${right ? "items-end" : "items-start"} ${trail.length || body.length ? "mt-4" : ""}`}
+          className={`flex flex-col ${path.length ? "gap-md" : "gap-sm"} ${right ? "items-end" : "items-start"} ${trail.length || body.length ? "mt-md" : ""}`}
         >
           {items.map((n) => (
             <li
@@ -259,11 +333,14 @@ function View({ path, right, onOpen }) {
 // o menu nasce sempre na raiz e não guarda memória da vez anterior.
 // `onAnchor` informa onde a âncora ficou (já contida na tela) e a
 // profundidade, para a bolinha do desktop pousar ali e sumir sob a seta.
+// `onOpenNode` avisa cada nó aberto — é como a mídia do centro acompanha o
+// trabalho que a pessoa está lendo.
 export default function Menu({
   x: clickX,
   y: clickY,
   autoFocus = false,
   onAnchor,
+  onOpenNode,
 }) {
   const [geometry] = useState(() => place(clickX, clickY));
   const { x, y, right, up } = geometry;
@@ -293,7 +370,10 @@ export default function Menu({
   };
 
   // `detail === 0` é o clique que o navegador sintetiza a partir de Enter/Espaço.
-  const open = (node, e) => go([...path, node], e.detail === 0);
+  const open = (node, e) => {
+    onOpenNode?.(node);
+    go([...path, node], e.detail === 0);
+  };
   const back = (e) => go(path.slice(0, -1), e.detail === 0, path.at(-1).id);
 
   // `box` é onde há texto nesta tela (o conteúdo recortado pela caixa, que

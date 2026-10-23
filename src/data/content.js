@@ -1,184 +1,172 @@
 // Fonte única de conteúdo do site.
 // O site inteiro é o menu: cada nó é uma tela dele. Um nó abre outro nível se
-// tiver `children` ou `body`; vira link se tiver `href`; sem nenhum dos três é
-// só texto (e por isso não recebe glitch nem foco).
+// tiver `children`, `body`, `lede` ou `points`; vira link se tiver `href`;
+// sem nada disso é só texto (e por isso não recebe risco nem foco).
 //
 //   title     texto principal do item
 //   meta      linha mono embaixo do título (empresa, ano…)
 //   body      parágrafos exibidos quando o nó está aberto
+//   lede      frase curta de abertura (trabalhos), alinhada como o título
+//   points    tópicos: "manchete" ou ["manchete", "detalhe"] — a manchete
+//             é o que se lê passando o olho; o detalhe, quem quer saber mais
 //   children  subitens listados depois do body
 //   href      destino externo
+//   media     o que aparece no centro da tela quando o nó é aberto (ver
+//             MÍDIAS abaixo); `link` vira o destino de um clique nela
 //
 // `id` precisa ser único no menu inteiro: é por ele que o título "viaja" da
 // lista até o cabeçalho quando o nó é aberto.
 
+import inexplicavelMotion from "../assets/media/inexplicavel/motion.mp4";
+import inexplicavelPoster from "../assets/media/inexplicavel/poster.webp";
+import mariaEulaliaMotion from "../assets/media/maria-eulalia/motion.mp4";
+import mariaEulaliaPoster from "../assets/media/maria-eulalia/poster.webp";
+import mariaViewMotion from "../assets/media/maria-view/motion.mp4";
+import mariaViewPoster from "../assets/media/maria-view/poster.webp";
+import ulissesMotion from "../assets/media/ulisses-xavier/motion.mp4";
+import ulissesPoster from "../assets/media/ulisses-xavier/poster.webp";
+
+// --- MÍDIAS ------------------------------------------------------------------
+// Versões leves dos originais (src/assets/image, src/assets/motion): WebP com
+// 480px no lado menor e vídeo 720×720 sem áudio. O centro da tela mostra uma
+// por vez, na ordem do menu.
+//
+//   motion     vídeo quadrado em loop, mudo; `poster` é o primeiro quadro
+//   moodboard  `items` em grade; `area` é a célula do molde (index.css)
+//              (a–g no desktop; no celular só a, b, c, e, g aparecem).
+//              Hoje nenhum nó usa: os trabalhos são contados em motion.
+//
+// `label` é o nome que cataloga a mídia sob ela (o da marca, não o cargo).
+const mariaEulaliaMedia = {
+  kind: "motion",
+  label: "Maria Eulália",
+  src: mariaEulaliaMotion,
+  poster: mariaEulaliaPoster,
+  alt: "Apresentação do trabalho na Maria Eulália: guia de medidas na página da joia e vitrine própria no celular",
+};
+
+const inexplicavelMedia = {
+  kind: "motion",
+  label: "Inexplicável",
+  src: inexplicavelMotion,
+  poster: inexplicavelPoster,
+  alt: "Apresentação do design system da Inexplicável: logo, rótulos por cor, tokens e stories gerados por template",
+};
+
+const ulissesMedia = {
+  kind: "motion",
+  label: "UlissesXavier",
+  src: ulissesMotion,
+  poster: ulissesPoster,
+  alt: "Apresentação do UlissesXavier, o seu nerdzinho de UX, rodando no Claude Code",
+};
+
+const mariaViewMedia = {
+  kind: "motion",
+  label: "Maria.view",
+  src: mariaViewMotion,
+  poster: mariaViewPoster,
+  alt: "Apresentação do Maria.view: 83.670 linhas de um único .out do ORCA",
+};
+
 // --- TRABALHO -----------------------------------------------------------------
-// Estrutura do CV (src/assets/CV): cada trabalho tem um parágrafo de abertura
-// e tópicos, e cada tópico abre o próprio texto. Títulos, subtítulos e links
-// vieram do Figma; os textos dos tópicos, do CV.
+// Estrutura do CV (src/assets/CV): cada trabalho é uma tela só — uma linha
+// de abertura (`lede`, quando há) e os resultados em tópicos (`points`,
+// manchete + detalhe; a manchete sozinha precisa fazer sentido). Não
+// há mais níveis abaixo de um trabalho: quem entra lê, não navega.
 const works = [
   {
     id: "maria-eulalia",
-    title: "Dev Front-end & UI Designer",
-    meta: ["Maria Eulália", "2026"],
+    title: "Design Engineer",
+    meta: ["Maria Eulália", "01/26 – atualmente"],
     link: "https://www.mariaeulalia.com.br/",
-    body: [
-      "Criação de ferramentas customizadas que deram autonomia para a equipe da loja e melhoraram a jornada de compra do cliente.",
-    ],
-    children: [
-      {
-        id: "maria-eulalia-componentes",
-        title: "Desenvolvimento de Componentes Dinâmicos (Shopify Liquid)",
-        body: [
-          "Engenharia de uma “Gaveta de Medidas” (Side Drawer) interativa na página de produto. Implementação de renderização condicional que exibe conteúdos específicos automaticamente com base na categoria da joia, reduzindo o atrito na jornada de compra.",
-        ],
-      },
-      {
-        id: "maria-eulalia-tema",
-        title: "Arquitetura de Tema e Autonomia",
-        body: [
-          "Criação de blocos nativos customizados no painel da Shopify utilizando JSON Schema. Otimização da manutenção do e-commerce, permitindo que a equipe de marketing edite chamadas para ação (CTAs) e regras de negócio sem qualquer intervenção técnica.",
-        ],
-      },
-      {
-        id: "maria-eulalia-ui",
-        title: "UI/UX & Front-end",
-        body: [
-          "Construção de interfaces premium em JavaScript e CSS, incorporando efeitos modernos como Glassmorphism (backdrop-filter), transições fluidas, navegação interna por abas e design 100% responsivo (Mobile-First) focado em usabilidade.",
-        ],
-      },
-      {
-        id: "maria-eulalia-precificacao",
-        title: "Lógica de Negócios e Regras de Precificação",
-        body: [
-          "Programação de lógicas condicionais no backend do front-end (Liquid) para controle de exibição de preços, como a automação de botões de conversão (“Comprar” para “Sob Consulta”) baseada na leitura de tags dinâmicas no cadastro do produto.",
-        ],
-      },
+    media: mariaEulaliaMedia,
+    lede: "Ferramentas sob medida para a equipe e para quem compra.",
+    points: [
+      ["Menos dúvida na compra", "guia de medidas que aparece sozinho por tipo de joia"],
+      ["Marketing autônomo", "blocos editáveis, sem depender de código"],
+      ["Preços e botões que se ajustam sozinhos", "sem erro manual"],
     ],
   },
   {
     id: "inexplicavel",
-    title: "Design de Marca",
-    meta: ["Inexplicável", "2025-2026"],
+    title: "Design System & Identidade",
+    meta: ["Inexplicável", "01/26 – atualmente"],
     link: "https://www.instagram.com/inexplicavelvinhos",
-    body: [],
-    children: [
-      {
-        id: "inexplicavel-identidade",
-        title: "Identidade Visual",
-        body: [
-          "Concepção de ponta a ponta do ecossistema da marca e social media, desenvolvendo desde o logotipo tipográfico minimalista até a padronização da comunicação digital, com forte foco em hierarquia da informação e uso do espaço negativo.",
-        ],
-      },
-      {
-        id: "inexplicavel-embalagens",
-        title: "Design de Embalagens e Prototipagem",
-        body: [
-          "Criação de rótulos de vinhos e desenvolvimento de mockups super realistas com sobreposições estéticas, garantindo que cada detalhe do produto (incluindo as visões completas e laterais das garrafas) fosse visualizado com alta precisão e fidelidade ao estilo visual proposto.",
-        ],
-      },
-      {
-        id: "inexplicavel-sistema",
-        title: "Sistematização e Escalabilidade de Marca",
-        body: [
-          "Construção de um manual de identidade visual estruturado com base em metodologias e diretrizes de grandes corporações nacionais (como Vale e Oi), assegurando que o ecossistema da marca seja aplicável e escalável de forma consistente nos ambientes online e físico.",
-        ],
-      },
+    media: inexplicavelMedia,
+    lede: "Transformei a identidade da marca em um sistema que gera as artes.",
+    points: [
+      [
+        "Design tokens em um arquivo só",
+        "cor, tipografia, grade e espaçamento geram o CSS e alimentam os templates das peças",
+      ],
+      [
+        "Posts gerados por template",
+        "com as margens de proteção resolvidas por um solver de restrições (Cassowary) em vez de ajuste no olho",
+      ],
+      [
+        "O sistema se verifica sozinho",
+        "um grafo acusa referência quebrada, ciclo e valor fora da escala antes da arte sair",
+      ],
+      [
+        "A identidade por trás disso",
+        "logo, rótulos e manual de marca criados do zero",
+      ],
     ],
   },
   {
     id: "nova-tendencia",
-    title: "Estágio & Dev Front-end Jr",
-    meta: ["Nova Tendência", "2023-2024"],
+    title: "Front-end Engineer",
+    meta: ["Nova Tendência", "03/23 – 04/24"],
     link: "https://portal-parceiros.cld.brasilseg.com.br/",
-    body: [],
-    children: [
-      {
-        id: "nova-tendencia-interfaces",
-        title: "Desenvolvimento de Interfaces Complexas",
-        body: [
-          "Atuação na construção e manutenção do front-end do Portal de Parceiros da BB Seguros utilizando React.js, traduzindo regras de negócios do setor financeiro em telas funcionais e intuitivas.",
-        ],
-      },
-      {
-        id: "nova-tendencia-componentes",
-        title: "Componentização e Escalabilidade",
-        body: [
-          "Criação de componentes reutilizáveis e estruturação de interfaces modulares, garantindo consistência visual e facilitando a manutenção do código por toda a equipe.",
-        ],
-      },
-      {
-        id: "nova-tendencia-evolucao",
-        title: "Evolução Profissional",
-        body: [
-          "Ingresso como estagiário com rápida absorção da arquitetura do projeto e da stack tecnológica, resultando em efetivação para Desenvolvedor Júnior em apenas 7 meses, assumindo entregas de maior responsabilidade técnica.",
-        ],
-      },
+    lede: "Projeto: Portal de Parceiros da BB Seguros",
+    points: [
+      "Efetivado em 7 meses",
+      ["Sistema financeiro complexo", "em telas simples"],
+      ["Componentes reutilizáveis", "que mantêm o visual consistente"],
     ],
   },
   {
     id: "fiocruz",
     title: "Iniciação Científica",
-    meta: ["Fiocruz", "2022"],
+    meta: ["Fiocruz", "01/22 – 12/22"],
     link: "https://journals.sagepub.com/doi/10.1177/00236772231194957",
-    body: ["Artigo publicado na revista britânica Laboratory Animals."],
-    children: [
-      {
-        id: "fiocruz-dados",
-        title: "Engenharia de Dados e Matemática Aplicada",
-        body: [
-          "Desenvolvimento de um sistema e de um algoritmo próprio de randomização para automatizar e corrigir o cálculo de amostras biológicas em pesquisas de saúde.",
-        ],
-      },
-      {
-        id: "fiocruz-full-stack",
-        title: "Desenvolvimento Full-Stack (Python)",
-        body: [
-          "Estruturação do back-end e da lógica matemática utilizando Flask, Pandas e NumPy para processar equações estatísticas complexas e entregá-las através de uma interface de fácil uso para pesquisadores não-técnicos.",
-        ],
-      },
-      {
-        id: "fiocruz-impacto",
-        title: "Impacto Científico Internacional",
-        body: [
-          "A precisão do algoritmo e a solução desenvolvida mitigaram erros metodológicos críticos no instituto, resultando na publicação da metodologia em artigo na revista científica britânica Laboratory Animals.",
-        ],
-      },
+    points: [
+      "Artigo publicado na Laboratory Animals",
+      ["Menos erro nas pesquisas", "com cálculo automatizado"],
+      ["Interface simples", "para quem não é da área técnica"],
     ],
   },
 ];
 
 // --- PROJETO ------------------------------------------------------------------
-// Mesma estrutura de Trabalho, com os textos da seção PROJETOS do CV.
+// Mesma estrutura de Trabalho, com a seção PROJETOS do CV.
 const projects = [
+  {
+    id: "ulisses-xavier",
+    title: "UlissesXavier",
+    meta: ["o seu nerdzinho de UX"],
+    link: "https://github.com/MatheusAraripe/UlissesXavier",
+    media: ulissesMedia,
+    points: [
+      ["Revisão de UX baseada em evidência", "para times sem especialista"],
+      "Mede acessibilidade, fluidez e consistência visual",
+      [
+        "Primeiro teste",
+        "três caminhos de perda de dados e texto abaixo do mínimo de acessibilidade, corrigidos na mesma semana (contraste de 3,26:1 para 7,4:1)",
+      ],
+    ],
+  },
   {
     id: "maria-view",
     title: "Maria.view",
-    meta: ["10/2025 - atualmente"],
-    link: "https://maria-view.onrender.com/#/login",
-    body: [],
-    children: [
-      {
-        id: "maria-view-3d",
-        title: "Visualização Gráfica e Modelagem 3D",
-        body: [
-          "Desenvolvimento do Maria.view, uma aplicação web interativa voltada para a renderização e exploração tridimensional de estruturas moleculares complexas para uso direto pelos pesquisadores dos laboratórios de química da UFRJ.",
-        ],
-      },
-      {
-        id: "maria-view-interacao",
-        title: "Interação Dinâmica e Lógica Matemática",
-        body: [
-          "Implementação de lógicas avançadas em JavaScript para a identificação interativa de átomos e execução em tempo real de cálculos físicos, incluindo medição de distâncias espaciais e a soma de cargas atômicas (como os métodos Mulliken e CHELPG).",
-        ],
-      },
-      {
-        id: "maria-view-ux",
-        title: "UX/UI Aplicada à Ciência",
-        body: [
-          "Construção de uma interface focada na precisão e na usabilidade do pesquisador, com desenvolvimento de indicadores visuais de seleção (como marcações radiais em torno dos átomos interagidos) e painéis de dados responsivos, entregando uma ferramenta robusta e livre de falhas de execução para a análise de resultados científicos.",
-        ],
-      },
+    meta: ["10/25 – atualmente"],
+    link: "https://maria-view.onrender.com/#/",
+    media: mariaViewMedia,
+    points: [
+      ["Moléculas complexas em 3D", "para pesquisadores de química da UFRJ"],
+      "Interface Orientada a Objetos (OOUI)",
+      ["Interface precisa e responsiva", "com indicadores visuais de seleção"],
     ],
   },
 ];
@@ -234,7 +222,7 @@ export const menu = [
       },
     ],
   },
-  { id: "trabalho", title: "Trabalho", children: works },
-  { id: "projeto", title: "Projeto", children: projects },
+  { id: "trabalho", title: "Trabalhos", children: works },
+  { id: "projeto", title: "Projetos", children: projects },
   { id: "contato", title: "Contato", children: socials },
 ];

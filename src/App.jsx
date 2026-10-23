@@ -1,7 +1,8 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import AnchorDot from "./components/AnchorDot";
 import Menu from "./components/Menu";
-import photo from "./assets/image/tt.webp";
+import Showcase from "./components/Showcase";
+import { slideOf } from "./data/slides";
 
 let invocations = 0;
 
@@ -12,6 +13,9 @@ export default function App() {
   const [invocation, setInvocation] = useState(null);
   // Onde a âncora do menu aberto está e em que nível ele se encontra.
   const [anchor, setAnchor] = useState(null);
+  // Qual mídia está no centro. Só muda pelas setas ou ao abrir, no menu, um
+  // nó que tem mídia — navegar por outros nós não mexe nela.
+  const [slide, setSlide] = useState(0);
   const hint = useRef(null);
   const center = useRef(null);
   const restoreFocus = useRef(false);
@@ -21,10 +25,16 @@ export default function App() {
       // Clique sintetizado por teclado (Enter/Espaço) não tem coordenada útil.
       if (e.detail === 0 || e.button !== 0) return;
       // composedPath e não contains: quando este listener roda, o React pode
-      // já ter trocado a tela e desmontado o botão clicado.
+      // já ter trocado a tela e desmontado o botão clicado. `data-own` marca
+      // o que trata o próprio clique (setas e link da mídia): nem invoca nem
+      // dispensa o menu.
       const inside = e
         .composedPath()
-        .some((el) => el instanceof Element && el.hasAttribute("data-menu"));
+        .some(
+          (el) =>
+            el instanceof Element &&
+            (el.hasAttribute("data-menu") || el.hasAttribute("data-own")),
+        );
       if (inside) return;
       setInvocation((current) =>
         current ? null : { key: ++invocations, x: e.clientX, y: e.clientY },
@@ -69,6 +79,11 @@ export default function App() {
     });
   };
 
+  const openNode = (node) => {
+    const i = slideOf(node.id);
+    if (i >= 0) setSlide(i);
+  };
+
   // Menu aberto em cima da foto fica ilegível (texto preto sobre foto
   // escura). A caixa dele é fixa por invocação, então basta um teste: se
   // cobre o centro, foto e título recuam. Aberto longe, como no protótipo,
@@ -83,7 +98,7 @@ export default function App() {
       box.top < r.bottom &&
       box.bottom > r.top;
     center.current.dataset.covered = covered ? "true" : "false";
-  }, [invocation, anchor]);
+  }, [invocation, anchor, slide]);
 
   // Com o menu fechado a tela inteira é o botão que o invoca: o cursor de
   // clique reforça o convite da bolinha. Aberto, clicar fora só dispensa —
@@ -97,37 +112,23 @@ export default function App() {
         hidden={Boolean(anchor?.depth)}
       />
 
-      {/* Centro da tela: foto e o único h1. Clicar nela também invoca o menu
-          (é parte da tela). Tamanhos em múltiplos de 4, um degrau menor no
-          celular, como o texto: 144×192 → 192×256. `tt.webp` é a versão
-          leve de `tt.jpg` (480×640). */}
+      {/* Centro da tela: a vitrine (retrato com o único h1, ou a mídia de um
+          trabalho). O retrato invoca o menu como qualquer ponto da tela; a
+          mídia é link para o projeto. */}
       <div
         ref={center}
-        className="flex flex-col items-start transition-opacity duration-300 select-none data-[covered=true]:opacity-10"
+        className="flex flex-col items-center transition-opacity duration-300 select-none data-[covered=true]:opacity-10"
       >
-        <img
-          src={photo}
-          alt="Retrato de Matheus Araripe"
-          width="480"
-          height="640"
-          decoding="async"
-          draggable={false}
-          className="h-48 w-36 object-cover sm:h-64 sm:w-48"
-        />
-        <h1 className="type-h1 mt-2 text-black/75">
-          Matheus Araripe,
-          <br />
-          um designer que programa
-        </h1>
+        <Showcase index={slide} onIndex={setSlide} />
 
         {/* No desktop quem convida ao clique é a bolinha; o aviso só aparece
             no toque e, para o teclado, ao receber foco. Centralizado sob a
-            foto, em mono light no menor tamanho: 8 no celular e 12 acima. */}
+            foto, em mono light no menor tamanho (12). */}
         <button
           ref={hint}
           type="button"
           onClick={openFromKeyboard}
-          className={`mt-4 cursor-pointer self-center font-mono text-small font-light text-black/70 transition-[opacity,visibility] duration-300 focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-accent pointer-fine:not-focus-visible:sr-only ${invocation ? "invisible opacity-0" : ""}`}
+          className={`mt-md cursor-pointer self-center font-mono text-small font-light text-black/70 transition-[opacity,visibility] duration-300 focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-accent pointer-fine:not-focus-visible:sr-only ${invocation ? "invisible opacity-0" : ""}`}
         >
           <span className="pointer-coarse:hidden">
             Clique em qualquer lugar
@@ -145,6 +146,7 @@ export default function App() {
           y={invocation.y}
           autoFocus={invocation.keyboard}
           onAnchor={setAnchor}
+          onOpenNode={openNode}
         />
       )}
     </main>

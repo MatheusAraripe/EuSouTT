@@ -17,18 +17,36 @@
   --text-body--line-height: 20px;
   --text-small: 12px;
   --text-small--line-height: 16px;
+
+  /* Escala de espaços: a mesma base 4 do texto, com nome. Margens e gaps
+     usam só estes (mt-sm, gap-md…); o que separa grupos é o vazio, não
+     traço nem linha. Quanto mais perto, mais junto: um título fica mais
+     perto do que apresenta do que do bloco anterior.
+     2xs  4   título → subtítulo, manchete → detalhe
+     xs   8   mídia → nome, catálogo → mídia, ícone → texto
+     sm  12   cabeçalho → abertura; itens da raiz
+     md  16   entre tópicos, parágrafos e itens; cabeçalho → conteúdo
+     lg  24   abertura → tópicos; entre títulos da trilha
+     xl  32   reserva para separar seções */
+  --spacing-2xs: 4px;
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
 }
 
-/* Telas estreitas descem um degrau na mesma sequência de 4 (20→16, 16→12,
-   12→8). Os utilitários leem as variáveis, então basta trocá-las aqui. */
+/* Telas estreitas descem um degrau na mesma sequência de 4 (20→16, 16→12).
+   O pequeno não desce: 8px fica abaixo do legível em qualquer guia (a Apple
+   pede 11pt no mínimo) — no celular ele empata com o corpo em 12 e se
+   distingue pela caixa alta e pelo peso, não pelo tamanho. Os utilitários
+   leem as variáveis, então basta trocá-las aqui. */
 @media (width < 40rem) {
   :root {
     --text-title: 16px;
     --text-title--line-height: 20px;
     --text-body: 12px;
     --text-body--line-height: 16px;
-    --text-small: 8px;
-    --text-small--line-height: 12px;
   }
 }
 
@@ -36,11 +54,16 @@
    Cinco papéis de texto (Figma, "hierarquia de textos"). A tag semântica e o
    papel visual andam juntos, mas o papel também vale para o que não pode ser
    heading — o título dentro de um <button> do menu, por exemplo.
-   h1  a frase sob a foto (único na página)   serifa, regular, 16
-   h2  títulos do menu e toda a raiz           serifa, regular, 20
-   h3  subtítulos (empresa, ano…)              mono, light, 12, caixa alta
-   h4  links de navegação abaixo dos títulos   mono, medium, 16
-   p   parágrafos                              mono, light, 16 */
+   h1    a frase sob a foto (único na página)   serifa, regular, 16
+   h2    títulos do menu e toda a raiz           serifa, regular, 20
+   h3    subtítulos (empresa, ano…)              mono, light, 12, caixa alta
+   h4    links de navegação; manchete de tópico  mono, medium, 16
+   lede  abertura de um trabalho                 serifa, regular, 16
+   p     parágrafos; detalhe de tópico           mono, light, 16
+   Num trabalho a leitura desce em três camadas — abertura em serifa,
+   manchete em medium, detalhe em light — e é a troca de fonte e de peso
+   que as separa, não marcadores. Sem itálico: a Cactus só tem regular, e o
+   itálico seria sintetizado pelo navegador. */
 /* 16 e não 20: a legenda da foto não compete com os links do menu. */
 @utility type-h1 {
   font-family: var(--font-serif);
@@ -70,6 +93,15 @@
   font-size: var(--text-body);
   line-height: var(--text-body--line-height);
   font-weight: 500;
+}
+
+/* A frase que abre um trabalho: mesma medida do h1, outro papel. A serifa
+   tira a abertura do bloco mono que vem depois. */
+@utility type-lede {
+  font-family: var(--font-serif);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  font-weight: 400;
 }
 
 @utility type-p {
@@ -165,6 +197,49 @@ body {
   from {
     opacity: 0;
     transform: scale(0.4);
+  }
+}
+
+/* --- Moodboard -------------------------------------------------------------- */
+/* Um bloco no centro da tela, sem crescer para nenhum lado. No desktop é um
+   quadrado 4×4 de 560px (ou menos, se a tela for baixa — sobra espaço para as
+   setas, o nome e o aviso); no celular, um retângulo vertical 3×4 de 288px
+   com as peças que leem bem pequenas. Peças altas ocupam 1×2, deitadas 2×1, a
+   principal 2×2: todo recorte (`object-cover`) fica perto da proporção da
+   foto. Gap de 4, a mesma escala do resto. */
+.moodboard {
+  display: grid;
+  gap: 4px;
+  width: 288px;
+  aspect-ratio: 3 / 4;
+  /* Sem isso o aspect-ratio vira só um mínimo e as fotos esticam o bloco. */
+  min-height: 0;
+  grid-template: repeat(4, minmax(0, 1fr)) / repeat(3, minmax(0, 1fr));
+  grid-template-areas:
+    "a a b"
+    "a a b"
+    "c e e"
+    "c g g";
+}
+
+.moodboard > :is([data-area="d"], [data-area="f"]) {
+  display: none;
+}
+
+@media (width >= 40rem) {
+  .moodboard {
+    width: min(560px, 100dvh - 208px);
+    aspect-ratio: 1;
+    grid-template: repeat(4, minmax(0, 1fr)) / repeat(4, minmax(0, 1fr));
+    grid-template-areas:
+      "a a b c"
+      "a a b c"
+      "d e e f"
+      "d g g f";
+  }
+
+  .moodboard > :is([data-area="d"], [data-area="f"]) {
+    display: block;
   }
 }
 

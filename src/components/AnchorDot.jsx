@@ -4,12 +4,16 @@ import { useEffect, useRef } from "react";
 // clique, pousa no ponto onde o menu nasce. Só em ponteiro fino (desktop).
 //
 // Canvas 2D e não WebGL: para um disco só, criar contexto GL e shader é peso
-// à toa. O canvas tem 56px e anda por `transform` — o compositor move a
+// à toa. O canvas tem 176×56px e anda por `transform` — o compositor move a
 // camada, nada de layout nem de repintar a tela inteira. O loop de rAF
 // hiberna quando as molas assentam; o convite ao clique acorda por timeout.
 
-const SIZE = 56; // lado do canvas em px CSS (cabe o disco esticado + raios)
-const HALF = SIZE / 2;
+// Canvas em px CSS: a altura cabe o disco esticado e os raios; a largura,
+// a pílula do aviso ("Ver projeto") sobre as mídias.
+const W = 176;
+const H = 56;
+const HALF_W = W / 2;
+const HALF_H = H / 2;
 const R = 5.5; // mesmo raio do disco da Spark do menu
 const TAU = Math.PI * 2;
 // Branco em `mix-blend-mode: difference` (no canvas): sobre o papel o
@@ -26,6 +30,17 @@ const JELLY = { k: 340, c: 12 };
 const GROW = { k: 320, c: 30 };
 const STRETCH_PER_SPEED = 0.0008; // deformação por px/s
 const MAX_STRETCH = 0.55;
+
+// Sobre um elemento com `data-cursor` (as mídias da vitrine) o disco se
+// estica na horizontal até virar uma pílula com o texto dentro. Ali o
+// difference deixaria o texto ilegível sobre a foto: a pílula é sólida, preta
+// a .85 com o texto no papel, e o blend volta quando ela encolhe.
+const PILL = { k: 300, c: 30 };
+const PILL_H = 24;
+const PILL_PAD = 12;
+const PILL_FILL = "rgba(0, 0, 0, 0.85)";
+const PILL_TEXT = "249, 249, 249"; // --color-paper
+const LABEL_FONT = '300 12px "Roboto Mono", ui-monospace, monospace';
 
 // Convite ao clique: depois de IDLE_AFTER sem clicar, a cada IDLE_PERIOD o
 // disco afunda (press) e os raios da Spark saem dele, uma vez.
@@ -50,6 +65,7 @@ const RAYS = [
 
 const easeOut = (t) => 1 - (1 - t) ** 3;
 const clamp01 = (t) => Math.min(Math.max(t, 0), 1);
+const lerp = (a, b, t) => a + (b - a) * t;
 
 export default function AnchorDot({ anchor, hidden }) {
   const canvas = useRef(null);
@@ -68,14 +84,17 @@ export default function AnchorDot({ anchor, hidden }) {
     const el = canvas.current;
     const ctx = el.getContext("2d");
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    el.width = el.height = SIZE * dpr;
+    el.width = W * dpr;
+    el.height = H * dpr;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
 
     const s = {
       x: 0, y: 0, vx: 0, vy: 0, // posição
       dx: 0, dy: 0, dvx: 0, dvy: 0, // deformação (vetor)
       sc: 0, vsc: 0, // escala (aparecer/sumir)
+      ex: 0, vex: 0, // pílula (0 = disco, 1 = aviso aberto)
       mx: null, my: null, inside: false,
+      label: "", over: false,
       lastClick: performance.now(),
     };
     let raf = 0;
@@ -96,8 +115,10 @@ export default function AnchorDot({ anchor, hidden }) {
 
     const draw = (state) => {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      ctx.clearRect(0, 0, SIZE, SIZE);
-      el.style.transform = `translate3d(${s.x - HALF}px, ${s.y - HALF}px, 0)`;
+      ctx.clearRect(0, 0, W, H);
+      el.style.transform = `translate3d(${s.x - HALF_W}px, ${s.y - HALF_H}px, 0)`;
+      const pill = s.ex > 0.01;
+      el.style.mixBlendMode = pill ? "normal" : "";
       if (s.sc < 0.01) return;
 
       let press = 1;
@@ -115,13 +136,35 @@ export default function AnchorDot({ anchor, hidden }) {
         push = 3 * easeOut(t);
       }
 
-      ctx.translate(HALF, HALF);
+      ctx.translate(HALF_W, HALF_H);
       ctx.fillStyle = COLOR;
       ctx.strokeStyle = COLOR;
 
-      // Disco esticado na direção da deformação, área preservada.
-      const m = Math.min(Math.hypot(s.dx, s.dy), MAX_STRETCH);
+      // Disco esticado na direção da deformação, área preservada. Abrindo
+      // a pílula, a deformação some — ela não balança.
+      const m = Math.min(Math.hypot(s.dx, s.dy), MAX_STRETCH) * (1 - s.ex);
       const k = s.sc * press;
+
+      if (pill) {
+        ctx.font = LABEL_FONT;
+        const text = s.label.toUpperCase();
+        const w = lerp(2 * R * k, ctx.measureText(text).width + 2 * PILL_PAD, s.ex);
+        const h = lerp(2 * R * k, PILL_H, s.ex);
+        ctx.fillStyle = PILL_FILL;
+        ctx.beginPath();
+        ctx.roundRect(-w / 2, -h / 2, w, h, h / 2);
+        ctx.fill();
+        // O texto só entra quando a pílula já tem largura para ele.
+        const alpha = clamp01((s.ex - 0.6) / 0.4);
+        if (alpha > 0) {
+          ctx.fillStyle = `rgba(${PILL_TEXT}, ${alpha})`;
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          ctx.fillText(text, 0, 0.5);
+        }
+        return;
+      }
+
       ctx.save();
       ctx.rotate(Math.atan2(s.dy, s.dx));
       ctx.scale((1 + m) * k, k / (1 + m));
@@ -159,6 +202,8 @@ export default function AnchorDot({ anchor, hidden }) {
       const tx = anchor ? anchor.x : s.mx;
       const ty = anchor ? anchor.y : s.my;
       const visible = anchor ? !hidden : s.inside;
+      // Com o menu aberto a bolinha é a âncora dele: não vira aviso.
+      const pillTarget = !anchor && s.inside && s.over ? 1 : 0;
       if (tx === null) return;
 
       // Reaparecendo do nada: nasce no alvo em vez de voar do último ponto.
@@ -171,8 +216,9 @@ export default function AnchorDot({ anchor, hidden }) {
       if (reduce.matches) {
         s.x = tx;
         s.y = ty;
-        s.vx = s.vy = s.dx = s.dy = s.dvx = s.dvy = s.vsc = 0;
+        s.vx = s.vy = s.dx = s.dy = s.dvx = s.dvy = s.vsc = s.vex = 0;
         s.sc = visible ? 1 : 0;
+        s.ex = pillTarget;
       } else {
         s.vx += (FOLLOW.k * (tx - s.x) - FOLLOW.c * s.vx) * dt;
         s.vy += (FOLLOW.k * (ty - s.y) - FOLLOW.c * s.vy) * dt;
@@ -188,6 +234,9 @@ export default function AnchorDot({ anchor, hidden }) {
 
         s.vsc += (GROW.k * ((visible ? 1 : 0) - s.sc) - GROW.c * s.vsc) * dt;
         s.sc = Math.max(0, s.sc + s.vsc * dt);
+
+        s.vex += (PILL.k * (pillTarget - s.ex) - PILL.c * s.vex) * dt;
+        s.ex = clamp01(s.ex + s.vex * dt);
       }
 
       const state = idle(now);
@@ -197,13 +246,15 @@ export default function AnchorDot({ anchor, hidden }) {
         Math.abs(tx - s.x) + Math.abs(ty - s.y) < 0.05 &&
         Math.abs(s.vx) + Math.abs(s.vy) < 0.5 &&
         Math.abs(s.dx) + Math.abs(s.dy) + Math.abs(s.dvx) + Math.abs(s.dvy) < 0.002 &&
-        Math.abs((visible ? 1 : 0) - s.sc) + Math.abs(s.vsc) < 0.002;
+        Math.abs((visible ? 1 : 0) - s.sc) + Math.abs(s.vsc) < 0.002 &&
+        Math.abs(pillTarget - s.ex) + Math.abs(s.vex) < 0.002;
 
       if (!settled || state.phase >= 0) {
         raf = requestAnimationFrame(frame);
       } else {
         // Assentou: dorme até o próximo convite (ou até o mouse mexer).
         if (!visible) s.sc = 0;
+        s.ex = pillTarget;
         draw(state);
         if (state.wait !== null) timer = setTimeout(start, state.wait);
       }
@@ -222,6 +273,10 @@ export default function AnchorDot({ anchor, hidden }) {
       s.mx = e.clientX;
       s.my = e.clientY;
       s.inside = true;
+      // O texto fica guardado depois de sair: a pílula encolhe com ele.
+      const target = e.target.closest?.("[data-cursor]");
+      s.over = Boolean(target);
+      if (target) s.label = target.dataset.cursor;
       start();
     };
     const onDown = () => {
@@ -254,7 +309,7 @@ export default function AnchorDot({ anchor, hidden }) {
       ref={canvas}
       aria-hidden="true"
       className="pointer-events-none fixed top-0 left-0 z-20 hidden mix-blend-difference will-change-transform pointer-fine:block"
-      style={{ width: SIZE, height: SIZE }}
+      style={{ width: W, height: H }}
     />
   );
 }
